@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     min-height: ${({theme}) => theme.spacing[48]};
     & svg {
-        opacity: 0;
+        opacity: 0.4;
         position: absolute;
         top: 0;
         left: calc(50% - ${({theme}) => theme.spacing[36]});
@@ -22,6 +22,7 @@ const Wrapper = styled.div`
         transform-origin: center
     }
     & p {
+        transform: scale(0);
         width: 80%;
         margin: 0 auto;
     }
@@ -39,6 +40,7 @@ const PageTitle = styled.h1`
     font-weight: 800;
     color: ${({theme}) => theme.text.secondary};
     margin-bottom: .5rem;
+    transform: scale(0);
 `
 
 type Props = {
@@ -47,24 +49,27 @@ type Props = {
 }
 
 const PageHeader = ({title, description}: Props) => {
-    const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center' } });
-    const svgRef = useRef(null);
+    const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center', duration: 0.3 } });
+    // const svgRef = useRef(null);
+    let revealRef = useRef([]);
 
     useEffect(() => {
-        tl.to(svgRef.current, { duration: 0.3, autoAlpha: 0.25, scale: 1, ease: 'back.out' })
+        tl.set(revealRef.current, { scale: 0 })
+          .to(revealRef.current, { scale: 1, stagger: 0.5, ease: 'back.out' })
           .play()
+        return () => tl.kill();
     }, []);
 
     return (
         <Wrapper>
             <SvgTilt threshold={18}>
-                <svg ref={svgRef} viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <svg ref={el => revealRef.current[0] = el} viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                     <path id="blob" d="M380.5,315.5Q326,381,248.5,384Q171,387,120,318.5Q69,250,124,188.5Q179,127,272,89Q365,51,400,150.5Q435,250,380.5,315.5Z" fill="#d97706"></path>
                 </svg>
             </SvgTilt>
             <Tilt threshold={25}>
-                <PageTitle>{title}</PageTitle>
-                <p className="text-md text-light">{description}</p>
+                <PageTitle ref={el => revealRef.current[1] = el} >{title}</PageTitle>
+                <p ref={el => revealRef.current[2] = el} className="text-md text-secondary">{description}</p>
             </Tilt>
         </Wrapper>
     )

@@ -22,9 +22,11 @@ const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.text.default};
         font-size: ${({theme}) => theme.fontSize.lg[0]};
     }
-    ::-webkit-scrollbar { width: 0.75rem }
-    ::-webkit-scrollbar-track { background: ${({theme}) => theme.bg.default}; }
+    ::-webkit-scrollbar { width: 0.75rem; }
+    ::-webkit-scrollbar:horizontal { height: 0.5rem }
+    ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: ${({theme}) => theme.bg.secondary}; border: 2px solid ${({theme}) => theme.bg.default}; border-radius: .75rem }
+    .language-javascript::-webkit-scrollbar-thumb:horizontal { border-color: ${({theme}) => theme.mode === 'dark' ? '#2d2d2d' : '#f5f2f0'} }
     ::-moz-selection { background: ${({theme}) => theme.bg.invert}; color: ${({theme}) => theme.text.invert} }
     ::selection { background: ${({theme}) => theme.bg.invert}; color: ${({theme}) => theme.text.invert} }
     .overflow-hidden { overflow: hidden }
@@ -62,12 +64,14 @@ const GlobalStyle = createGlobalStyle`
     .text-primary { color: ${({theme}) => theme.text.primary} }
     .text-secondary { color: ${({theme}) => theme.text.secondary} }
     .text-md { font-size: ${({theme}) => theme.fontSize.base[0]} }
+    .text-sm { font-size: ${({theme}) => theme.fontSize.sm[0]}; line-height: ${({theme}) => theme.fontSize.sm[1].lineHeight} }
     .rounded { border-radius: 0.25rem }
     .border { border: 1px solid ${({theme}) => theme.border.default} }
     .border-b { border-bottom: 1px solid ${({theme}) => theme.border.default} }
     a:hover { color: ${({theme}) => theme.text.primary} };
     .app-content{position: relative;width:100%;}
     .app { width: 100%; overflow: hidden; position: relative }
+    :not(pre) > code[class*="language-"], pre[class*="language-"] { background-color: ${({theme}) => theme.bg.light} }
     .container { width: 100%; margin: 0 auto; padding: 0 ${ defaultStyles.gutter }px };
     ${ mediaScreens() }
 `;

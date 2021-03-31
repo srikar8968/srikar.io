@@ -33,7 +33,7 @@ const LogoWrapper = styled.div`
     transform: rotateX(90deg)
 `
 
-const Nav = ({fixed, ...props}) => {
+const Nav = ({fixed, navigation, lists, ...props}) => {
     const signatureRef = useRef(null);
     const signatureInvRef = useRef(null);
     const navRef = useRef(null);
@@ -43,13 +43,13 @@ const Nav = ({fixed, ...props}) => {
         if(fixed) {tl.set(navRef.current, { height: '0rem', duration: 0, backgroundImage: 'none' })}
         if(darkMode.value) {
             tl.to(signatureRef.current, { rotateX: 90, autoAlpha: 0 })
-                .to(signatureInvRef.current, { rotateX: 0, autoAlpha: 1 });
+              .to(signatureInvRef.current, { rotateX: 0, autoAlpha: 1 });
         } else {
             tl.to(signatureInvRef.current, { rotateX: 90, autoAlpha: 0 })
-                .to(signatureRef.current, { rotateX: 0, autoAlpha: 1 });
+              .to(signatureRef.current, { rotateX: 0, autoAlpha: 1 });
         }
         if(fixed) {
-            tl.to(navRef.current, {backgroundImage: `linear-gradient(to bottom, #${darkMode.value? '18181b' : 'fff'} 10px, transparent 85px)`})
+            tl.to(navRef.current, {backgroundImage: `linear-gradient(to bottom, #${darkMode.value? '1c1917' : 'fff'} 10px, transparent 85px)`})
               .to(navRef.current, { height: defaultStyles.spacing[20] });
         }
         tl.play();
@@ -77,14 +77,18 @@ const Nav = ({fixed, ...props}) => {
                     </a>
                 </Link>
                 <div className="w-full flex items-stretch justify-end">
-                    <nav className="flex items-center text-md mr">
-                        <Link href="/about"><a className="ml mr">About</a></Link>
-                        <Link href="/writings"><a className="ml mr">Writings</a></Link>
-                        <Link href="/"><a className="ml mr">Projects</a></Link>
-                        <Link href="/"><a className="ml mr">Contact</a></Link>
-                    </nav>
-                    <Link href="/"><a className="mr pr"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a></Link>
+                    { navigation !== 'none' ? <>
+                            <nav className="flex items-center text-md mr">
+                                <Link href="/writings"><a className="ml mr">Writings</a></Link>
+                                <Link href="/portfolio"><a className="ml mr">Portfolio</a></Link>
+                                <Link href="/"><a className="ml mr">Projects</a></Link>
+                                <Link href="/"><a className="ml mr">Contact</a></Link>
+                            </nav>
+                            <Link href="/"><a className="mr pr"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a></Link>
+                        </> : null
+                    }
                     <ToggleTheme />
+                    { lists }
                 </div>
             </div>
         </NavBar>

@@ -14,7 +14,7 @@ const defaultStyles = {
     current: 'currentColor',
     black: colors.black,
     white: colors.white,
-    gray: colors.gray,
+    gray: colors.warmGray,
     red: colors.red,
     yellow: colors.amber,
     green: colors.emerald,

@@ -5,10 +5,10 @@ import PostEntry from '../../components/app/PostEntry'
 import PageHeader from '../../components/base/PageHeader'
 
 type Props = {
-    allPosts: PostType[]
+    posts: PostType[]
 }
 
-const Writings = ({allPosts}: Props) => {
+const Writings = ({posts}: Props) => {
     return (
         <div className="pb mb">
             <div className="container text-center">
@@ -17,7 +17,7 @@ const Writings = ({allPosts}: Props) => {
                     title="My Writings" 
                     description="Here are my writings based on design, development, and building excellent web applications." />
                     <div className="pt mt">
-                        { allPosts?.map(post => (
+                        { posts?.map(post => (
                             <PostEntry key={post.slug} post={post} />
                         )) }
                     </div>
@@ -30,7 +30,7 @@ const Writings = ({allPosts}: Props) => {
 export default Writings
 
 export const getStaticProps = async () => {
-    const allPosts = getAllPosts([
+    const posts = getAllPosts([
         'title',
         'date',
         'slug',
@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
 
     return {
         props: {
-            allPosts
+            posts
         }
     }
 }

@@ -23,7 +23,7 @@ const light = {
         default: defaultTheme.colors.gray[900],
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[800],
-        light: defaultTheme.colors.gray[600],
+        light: defaultTheme.colors.gray[400],
         invert: defaultTheme.colors.white
     }
   }
@@ -47,7 +47,7 @@ const light = {
         default: defaultTheme.colors.gray[100],
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[300],
-        light: defaultTheme.colors.gray[500],
+        light: defaultTheme.colors.gray[600],
         invert: defaultTheme.colors.gray[900]
     }
   }
