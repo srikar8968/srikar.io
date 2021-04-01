@@ -39,7 +39,7 @@ const ScrollerWrapper = styled.div`
 
 type Props = {
   allPosts: PostType[]
-}
+};
 
 const Index = ({allPosts}: Props) => {
   const tl = gsap.timeline({ paused: true });

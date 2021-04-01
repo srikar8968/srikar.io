@@ -7,7 +7,7 @@ const postsDirectory = join(process.cwd(), '_posts')
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
-}
+};
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
@@ -17,7 +17,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
   type Items = {
     [key: string]: string
-  }
+  };
 
   const items: Items = {}
 
@@ -39,7 +39,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   })
 
   return items
-}
+};
 
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs()

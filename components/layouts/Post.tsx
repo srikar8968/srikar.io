@@ -3,7 +3,6 @@ import Nav from '../app/Nav'
 import PostContainer from '../base/PostContainer'
 import Comments from '../app/Comments'
 import useDarkMode from 'use-dark-mode'
-import PageTransition from '../base/animation/PageTransition'
 import PostEntry from '../app/PostEntry'
 
 const MorePosts = styled.div`
@@ -23,8 +22,8 @@ const PostLayout = ({ route, children }) => {
     const isDarkMode = useDarkMode(false);
     return (
         <div className="post-layout">
-            <Nav fixed={false} />
-            <PageTransition show={route}>
+            <Nav mode="none" />
+            <main>
                 <article className="app-content">
                     <div className="container">
                         <PostContainer pd="2rem 0">
@@ -58,7 +57,7 @@ const PostLayout = ({ route, children }) => {
                         </PostContainer>
                     </div>
                 </article>
-            </PageTransition>
+            </main>
         </div>
     )
 }

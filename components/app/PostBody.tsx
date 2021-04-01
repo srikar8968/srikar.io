@@ -41,5 +41,5 @@ const PostBody = ({content}: Props) => {
     return (
         <Wrapper className="post-content" dangerouslySetInnerHTML={{ __html: content }}></Wrapper>
     )
-}
+};
 export default PostBody

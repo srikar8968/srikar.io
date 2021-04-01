@@ -6,7 +6,7 @@ import PageHeader from '../../components/base/PageHeader'
 
 type Props = {
     posts: PostType[]
-}
+};
 
 const Writings = ({posts}: Props) => {
     return (
@@ -14,9 +14,9 @@ const Writings = ({posts}: Props) => {
             <div className="container text-center">
                 <PostContainer pd="1rem 0">
                     <PageHeader 
-                    title="My Writings" 
-                    description="Here are my writings based on design, development, and building excellent web applications." />
-                    <div className="pt mt">
+                        title="My Writings" 
+                        description="Here are my writings based on design, development, and building excellent web applications." />
+                    <div className="pt mt pb mb">
                         { posts?.map(post => (
                             <PostEntry key={post.slug} post={post} />
                         )) }

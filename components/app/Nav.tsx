@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { gsap } from 'gsap/dist/gsap'
+import { gsap } from 'gsap'
 import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import useDarkMode from 'use-dark-mode';
@@ -13,7 +13,7 @@ const NavBar = styled.header`
     top: 0;
     width: 100%;
     height: ${({theme}) => theme.spacing[20]};
-    background-image: ${({fixed}) => fixed ? `linear-gradient(to bottom, ${({theme}) => theme.bg.default} 10px, transparent 85px)` : `none`};
+    background-image: ${({fixed, theme}) => fixed ? `linear-gradient(to bottom, ${theme.bg.default} 10px, transparent 80px)` : `none`};
     z-index: 99;
     & .container {
         height: ${({theme}) => theme.spacing[20]};
@@ -33,30 +33,25 @@ const LogoWrapper = styled.div`
     transform: rotateX(90deg)
 `
 
-const Nav = ({fixed, navigation, lists, ...props}) => {
+const Nav = ({mode, ...props}) => {
     const signatureRef = useRef(null);
     const signatureInvRef = useRef(null);
     const navRef = useRef(null);
     const darkMode = useDarkMode(false);
     const tl = gsap.timeline({ paused: true, defaults: { duration: 0.3 } });
     useEffect(() => {
-        if(fixed) {tl.set(navRef.current, { height: '0rem', duration: 0, backgroundImage: 'none' })}
-        if(darkMode.value) {
-            tl.to(signatureRef.current, { rotateX: 90, autoAlpha: 0 })
-              .to(signatureInvRef.current, { rotateX: 0, autoAlpha: 1 });
-        } else {
-            tl.to(signatureInvRef.current, { rotateX: 90, autoAlpha: 0 })
-              .to(signatureRef.current, { rotateX: 0, autoAlpha: 1 });
-        }
-        if(fixed) {
-            tl.to(navRef.current, {backgroundImage: `linear-gradient(to bottom, #${darkMode.value? '1c1917' : 'fff'} 10px, transparent 85px)`})
+        if(mode === 'fixed') tl.set(navRef.current, { height: '0rem', duration: 0, backgroundImage: 'none' });
+        tl.to(signatureRef.current, { rotateX: darkMode.value ? 90 : 0, autoAlpha: darkMode.value ? 0 : 1 })
+          .to(signatureInvRef.current, { rotateX: darkMode.value ? 0 : 90, autoAlpha: darkMode.value ? 1 : 0 });
+        if(mode === 'fixed') {
+            tl.to(navRef.current, {backgroundImage: `linear-gradient(to bottom, #${darkMode.value? '0f0f10' : 'fff'} 10px, transparent 85px)`})
               .to(navRef.current, { height: defaultStyles.spacing[20] });
         }
         tl.play();
     }, [darkMode]);
 
     return (
-        <NavBar ref={navRef} fixed={fixed ? true : false} {...props}>
+        <NavBar ref={navRef} fixed={mode === 'fixed' ? true : false} {...props}>
             <div className="container flex items-center justify-between">
                 <Link href="/">
                     <a className="relative signature-container">
@@ -77,18 +72,12 @@ const Nav = ({fixed, navigation, lists, ...props}) => {
                     </a>
                 </Link>
                 <div className="w-full flex items-stretch justify-end">
-                    { navigation !== 'none' ? <>
-                            <nav className="flex items-center text-md mr">
-                                <Link href="/writings"><a className="ml mr">Writings</a></Link>
-                                <Link href="/portfolio"><a className="ml mr">Portfolio</a></Link>
-                                <Link href="/"><a className="ml mr">Projects</a></Link>
-                                <Link href="/"><a className="ml mr">Contact</a></Link>
-                            </nav>
-                            <Link href="/"><a className="mr pr"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a></Link>
-                        </> : null
-                    }
+                    <nav className="flex items-center text-md mr">
+                        <Link href="/writings"><a className="ml mr">Writings</a></Link>
+                        <Link href="/work"><a className="ml mr">Work</a></Link>
+                    </nav>
+                    <Link href="/"><a className="mr pr"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a></Link>
                     <ToggleTheme />
-                    { lists }
                 </div>
             </div>
         </NavBar>

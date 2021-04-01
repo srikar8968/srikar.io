@@ -12,31 +12,31 @@ const Tilt = ({children, threshold, ...props}) => {
 
     useEffect(() => {
         window.addEventListener('mousemove', onMouseUpdate, false);
-        if (window.DeviceMotionEvent != undefined) {
-            window.addEventListener('devicemotion', onAccelerometerUpdate, false);
-        }
+        // if (window.DeviceMotionEvent != undefined) {
+        //     window.addEventListener('devicemotion', onAccelerometerUpdate, false);
+        // }
         return () => {
             window.removeEventListener('mousemove', onMouseUpdate, false);
-            if(window.DeviceMotionEvent != undefined) {
-                window.removeEventListener('devicemotion', onAccelerometerUpdate, false);
-            }
+            // if(window.DeviceMotionEvent != undefined) {
+            //     window.removeEventListener('devicemotion', onAccelerometerUpdate, false);
+            // }
         }
     }, []);
 
-    const onAccelerometerUpdate = (e) => {
-        var aX = e.accelerationIncludingGravity.x*1;
-        var aY = e.accelerationIncludingGravity.y*1;
-        var aZ = e.accelerationIncludingGravity.z*1;
-        //The following two lines are just to calculate a
-        // tilt. Not really needed. 
-        var xPosition = Math.atan2(aY, aZ) * 20;
-        var yPosition = Math.atan2(aX, aZ) * 20;
+    // const onAccelerometerUpdate = (e) => {
+    //     var aX = e.accelerationIncludingGravity.x*1;
+    //     var aY = e.accelerationIncludingGravity.y*1;
+    //     var aZ = e.accelerationIncludingGravity.z*1;
+    //     //The following two lines are just to calculate a
+    //     // tilt. Not really needed. 
+    //     var xPosition = Math.atan2(aY, aZ) * 20;
+    //     var yPosition = Math.atan2(aX, aZ) * 20;
         
-        xPosition = Math.round(xPosition * 1000) / 1000;
-        yPosition = Math.round(yPosition * 1000) / 1000;
+    //     xPosition = Math.round(xPosition * 1000) / 1000;
+    //     yPosition = Math.round(yPosition * 1000) / 1000;
         
-        animate(xPosition, yPosition);
-    }
+    //     animate(xPosition, yPosition);
+    // }
     const onMouseUpdate = (e) => {
         const mouseX = e.pageX;
         const mouseY = e.pageY;

@@ -2,8 +2,12 @@ import DefaultLayout from '../components/layouts/Default'
 import StyleProvider from '../styles/StyleProvider'
 import GlobalCSS from '../styles/GlobalCSS'
 import Head from 'next/head';
+import { SwitchTransition, Transition } from 'react-transition-group'
+import gsap from 'gsap'
 
-export default function MyApp({ Component, pageProps, router }) {
+import type { AppProps /*, AppContext */ } from 'next/app'
+
+export default function MyApp({ Component, pageProps, router }: AppProps) {
   const Layout = Component.Layout || DefaultLayout;
   
   return (
@@ -16,9 +20,20 @@ export default function MyApp({ Component, pageProps, router }) {
       </Head>
       <StyleProvider>
         <GlobalCSS />
-          <Layout route={router.asPath}>
-            <Component {...pageProps} />
-          </Layout>
+          <SwitchTransition>
+            <Transition
+              key={router.pathname}
+              timeout={500}
+              in={true}
+              onEnter={(node) => gsap.from(node, { duration: 0.5, autoAlpha: 0, x: -80, ease: 'circ.out' })}
+              onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, x: 80, ease: 'circ.out' })}
+              mountOnEnter={true}
+              unmountOnExit={true}>
+              <Layout route={router.asPath}>
+                <Component {...pageProps} />
+              </Layout>
+            </Transition>
+          </SwitchTransition>
       </StyleProvider>
     </div>
   )

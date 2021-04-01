@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 
 type Props = {
     theme: string
-}
+};
 
 const Comments = ({theme}: Props) => {
     const commentRef = useRef(null);
@@ -21,6 +21,6 @@ const Comments = ({theme}: Props) => {
     return (
         <div className="uterances-comments-injection" ref={commentRef}></div>
     )
-}
+};
 
 export default Comments

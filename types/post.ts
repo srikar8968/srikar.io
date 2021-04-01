@@ -9,6 +9,6 @@ type PostType = {
   author: Author,
   excerpt: string,
   content: string
-}
+};
 
 export default PostType
