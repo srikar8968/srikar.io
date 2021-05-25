@@ -22,7 +22,6 @@ const PostLayout = ({ route, children }) => {
     const isDarkMode = useDarkMode(false);
     return (
         <div className="post-layout">
-            <Nav mode="none" />
             <main>
                 <article className="app-content">
                     <div className="container">

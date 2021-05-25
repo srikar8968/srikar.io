@@ -12,7 +12,7 @@ import Modal from '../../components/base/Modal'
 
 const Title = styled.h1`
     font-size: ${({theme}) => theme.fontSize.xl5[0]};
-    line-height: ${({theme}) => theme.fontSize.xl5[1].lineHeight};
+    line-height: 3.5rem;
     font-weight: 800;
     margin: 1rem 0 2rem 0;
 `
