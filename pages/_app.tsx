@@ -12,7 +12,7 @@ import Button from '../components/base/Button'
 
 import type { AppProps /*, AppContext */ } from 'next/app'
 
-const MenuToggler = styled.button`
+const MenuToggler = styled.nav`
   position: fixed;
   left: 0;
   top: 50%;
@@ -24,18 +24,22 @@ const MenuToggler = styled.button`
   line-height: 1.5rem;
   font-weight: 600;
   z-index: 30;
-  &:hover {
+  & > a {
+    color: ${({theme}) => theme.text.secondary};
+    display: inline-block;
+    margin-bottom: .75rem;
+    & svg {
+      width: .875rem;
+      height: .875rem;
+    }
+  }
+  & > a:hover {
     color: ${({theme}) => theme.text.primary}
   }
 `
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   const Layout = Component.Layout || DefaultLayout;
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const onMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
 
   return (
     <div className="app">
@@ -48,11 +52,19 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
       <StyleProvider>
         <GlobalCSS />
         <Nav mode="none" />
-        <MenuToggler onClick={onMenuToggle}>
-          <div>m</div>
-          <div>e</div>
-          <div>n</div>
-          <div>u</div>
+        <MenuToggler>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+          </a>
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+          </a>
+          <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+          </a>
+          <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+          </a>
         </MenuToggler>
         <SwitchTransition>
           <Transition
@@ -68,7 +80,6 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
             </Layout>
           </Transition>
         </SwitchTransition>
-        <Menu open={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       </StyleProvider>
     </div>
   )

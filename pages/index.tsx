@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 const HeroWrapper = styled.div`
   overflow: hidden;
-  min-height: calc(100vh - ${({theme}) => theme.spacing[20]});
+  min-height: calc(100vh);
   margin-top: -${({theme}) => theme.spacing[20]};
   display: flex;
   align-items: center;
