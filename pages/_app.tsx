@@ -5,38 +5,10 @@ import GlobalCSS from '../styles/GlobalCSS'
 import Head from 'next/head';
 import { SwitchTransition, Transition } from 'react-transition-group'
 import gsap from 'gsap'
-import { useState } from 'react'
 import Nav from '../components/app/Nav'
 import Menu from '../components/app/Menu'
-import Button from '../components/base/Button'
 
 import type { AppProps /*, AppContext */ } from 'next/app'
-
-const MenuToggler = styled.nav`
-  position: fixed;
-  left: 0;
-  top: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  transform: translateY(-50%);
-  line-height: 1.5rem;
-  font-weight: 600;
-  z-index: 30;
-  & > a {
-    color: ${({theme}) => theme.text.secondary};
-    display: inline-block;
-    margin-bottom: .75rem;
-    & svg {
-      width: .875rem;
-      height: .875rem;
-    }
-  }
-  & > a:hover {
-    color: ${({theme}) => theme.text.primary}
-  }
-`
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   const Layout = Component.Layout || DefaultLayout;
@@ -52,27 +24,14 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
       <StyleProvider>
         <GlobalCSS />
         <Nav mode="none" />
-        <MenuToggler>
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
-          </a>
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
-          </a>
-          <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
-          </a>
-          <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
-          </a>
-        </MenuToggler>
+        <Menu pathname={router.pathname} />
         <SwitchTransition>
           <Transition
             key={router.pathname}
             timeout={500}
             in={true}
-            onEnter={(node) => gsap.from(node, { duration: 0.5, autoAlpha: 0, scale: 0.975 })}
-            onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, scale: 0.975 })}
+            onEnter={(node) => gsap.from(node, { duration: 0.5, autoAlpha: 0, x: 100, ease: "power1.out" })}
+            onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, x: -100, ease: "power1.out" })}
             mountOnEnter={true}
             unmountOnExit={true}>
             <Layout route={router.asPath}>

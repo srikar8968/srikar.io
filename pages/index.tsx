@@ -19,10 +19,10 @@ const HeroWrapper = styled.div`
   display: flex;
   align-items: center;
   & h1 {
-    font-size: ${({theme}) => theme.fontSize.xl5[0]};
-    line-height: 3.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem
+    font-size: ${({theme}) => theme.fontSize.xl4[0]};
+    line-height: 2.75rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
   }
   & .navLst {
     font-size: ${({theme}) => theme.fontSize.xl[0]};
@@ -45,14 +45,14 @@ const Index = ({allPosts}: Props) => {
         <PostContainer>
           <h1>
             Hey, I'm&nbsp;
-            <span className="text-primary">Justin</span>.<br/>
+            <span className="text-primary">Srikar</span>.<br/>
             I'm a full-stack web developer, living in 
-            <span className="ml mr"><Image src="/images/charminar.png" width={50} height={50} alt="Hyderabad, India" title="Hyderabad, India" /></span> 
+            <span className="ml mr"><Image src="/images/charminar.png" width={35} height={35} alt="Hyderabad, India" title="Hyderabad, India" /></span>India 
             who love's building digital website
           </h1>
           <div className="navLst flex items-center flex-wrap text-secondary">
             <Link href="/about"><a className="mr">&lt;\<span>about</span>&gt;</a></Link>
-            <Link href="/about"><a className="mr ml">&lt;\<span>writings</span>&gt;</a></Link>
+            <Link href="/writings"><a className="mr ml">&lt;\<span>writings</span>&gt;</a></Link>
             <Link href="/work"><a className="mr ml">&lt;\<span>work</span>&gt;</a></Link>
             <Link href="/contact"><a className="mr ml">&lt;\<span>contact</span>&gt;</a></Link>
           </div>

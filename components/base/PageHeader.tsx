@@ -8,11 +8,12 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     flex-direction: column;
     overflow: hidden;
     min-height: ${({theme}) => theme.spacing[64]};
     & svg {
-        opacity: 0.4;
+        opacity: ${({theme}) => theme.mode == 'dark' ? '0.4' : '0.6'};
         position: absolute;
         top: calc(50% - ${({theme}) => theme.spacing[24]});
         left: calc(50% - ${({theme}) => theme.spacing[36]});

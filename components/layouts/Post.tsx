@@ -1,9 +1,13 @@
 import styled from 'styled-components'
-import Nav from '../app/Nav'
 import PostContainer from '../base/PostContainer'
 import Comments from '../app/Comments'
 import useDarkMode from 'use-dark-mode'
 import PostEntry from '../app/PostEntry'
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import { useEffect } from 'react'
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MorePosts = styled.div`
     background-color: ${({theme}) => theme.bg.light};
@@ -18,8 +22,36 @@ const MorePosts = styled.div`
     }
 `
 
+const AuthorWrapper = styled.div`
+    margin-top: 4rem;
+    padding: 4rem 0;
+    border-top: 1px solid;
+    border-color: ${({theme}) => theme.border.secondary};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & h4 {
+        font-size: ${({theme}) => theme.fontSize.xl2[0]};
+    }
+`
+
 const PostLayout = ({ route, children }) => {
     const isDarkMode = useDarkMode(false);
+    
+    useEffect(() => {
+        const boxes = gsap.utils.toArray('.remark-highlight');
+        boxes.forEach((box: Element) => {
+            const anim = gsap.fromTo(box, {autoAlpha: 0, y: 50}, {duration: 1, autoAlpha: 1, y: 0});
+            ScrollTrigger.create({
+                trigger: box,
+                animation: anim,
+                start: 'top 95%',
+                toggleActions: 'play none none none',
+                once: true
+            });
+        });
+    }, []);
+
     return (
         <div className="post-layout">
             <main>
@@ -27,20 +59,27 @@ const PostLayout = ({ route, children }) => {
                     <div className="container">
                         <PostContainer pd="2rem 0">
                             { children }
+                            
+                            <AuthorWrapper>
+                                <img src="/favicon/favicon-32x32.png" alt="srikar" />
+                                <h4 className="exbold mb mt">About Author</h4>
+                                <p>We engineer the thoughtful transformation of great organizations. Our proven process helps us understand what your competitors are doing right — and wrong.</p>
+                                <p>Want to collaborate? <a className="text-primary" href="#">Let's connect</a></p>
+                            </AuthorWrapper>
                         </PostContainer>
                     </div>
                     <MorePosts>
                         <div className="container">
-                            <h3>Recent Posts</h3>
+                            <h3>More Writings</h3>
                             <div className="flex">
-                                <PostEntry post={{
+                                <PostEntry gutter={false} post={{
                                     title: '20 Useful JavaScript Snippets while Developing a Project',
                                     excerpt: 'In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.',
                                     slug: 'twenty-useful-js-snippets',
                                     date: '2020-01-01',
                                     readingTime: '5 min'
                                 }} />
-                                <PostEntry post={{
+                                <PostEntry gutter={false} post={{
                                     title: 'Two Forms of Pre-rendering',
                                     excerpt: 'A deep-dive on everything I\'ve learned in the past year building style guides, design systems, component libraries, and their best practices.',
                                     slug: 'twenty-useful-js-snippets',

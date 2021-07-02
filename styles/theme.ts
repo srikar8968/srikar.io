@@ -10,13 +10,13 @@ const light = {
         default: defaultTheme.colors.gray[600],
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[300],
-        light: defaultTheme.colors.gray[400]
+        light: defaultTheme.colors.gray[100]
     },
     bg: {
         default: defaultTheme.colors.white,
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[300],
-        light: defaultTheme.colors.gray[100],
+        light: defaultTheme.colors.gray[50],
         invert: defaultTheme.colors.gray[900]
     },
     text: {
@@ -33,8 +33,8 @@ const light = {
     border: {
         default: defaultTheme.colors.gray[800],
         primary: defaultTheme.colors.yellow[600],
-        secondary: defaultTheme.colors.gray[700],
-        light: defaultTheme.colors.gray[500]
+        secondary: defaultTheme.colors.gray[600],
+        light: defaultTheme.colors.gray[700]
     },
     bg: {
         default: defaultTheme.colors.gray[900],

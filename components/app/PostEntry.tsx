@@ -7,7 +7,7 @@ const Wrapper = styled.a`
     display: block;
     width: 100%;
     padding: .875rem;
-    margin: 0 -0.875rem;
+    margin: 0 ${({gutter}) => gutter ? '-0.875rem' : '0'};
     text-align: left;
     border-radius: .25rem;
     transition: none;
@@ -17,8 +17,8 @@ const Wrapper = styled.a`
         box-shadow: ${({theme}) => theme.boxShadow.DEFAULT}
     }
     & h5 {
-        font-size: ${({theme}) => theme.fontSize.xl2[0]};
-        line-height: ${({theme}) => theme.fontSize.xl2[1].lineHeight};
+        font-size: ${({theme}) => theme.fontSize.xl[0]};
+        line-height: ${({theme}) => theme.fontSize.xl[1].lineHeight};
         font-weight: 600
     }
     & .post-meta {
@@ -28,13 +28,14 @@ const Wrapper = styled.a`
 `
 
 type Props = {
-    post: PostType
+    post: PostType,
+    gutter: Boolean
 };
 
-const PostEntry = ({post}: Props) => {
+const PostEntry = ({post, gutter = true}: Props) => {
     return (
         <Link href="/writings/[slug]" as={`/writings/${post.slug}`} passHref>
-            <Wrapper>
+            <Wrapper gutter={gutter}>
                 <h5>{ post?.title }</h5>
                 <p className="text-secondary text-md">{ post?.excerpt }</p>
                 <div className="post-meta text-light flex items-center flex-wrap">
