@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { useRef } from 'react'
+import WorkType from '../../types/work'
 
 const Wrapper = styled.div`
 	display: flex;
@@ -48,7 +49,11 @@ const GalleryItem = styled.div`
 	}
 `
 
-const Item = ({item}) => {
+type ItemProps = {
+	item: WorkType
+}
+
+const Item = ({item}: ItemProps) => {
 	const overlayRef = useRef();
 	const logoRef = useRef();
 	const screenRef = useRef();
@@ -90,7 +95,11 @@ const Item = ({item}) => {
 	)
 }
 
-const Gallery = ({items}) => {
+type ListProps = {
+	items: WorkType[]
+}
+
+const Gallery = ({items}: ListProps) => {
 	return (
 		<Wrapper>
 			{ items.map((item,index) => (

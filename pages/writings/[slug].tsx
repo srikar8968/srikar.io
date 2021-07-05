@@ -30,7 +30,7 @@ const Post = ({post}: Props) => {
     //     return <ErrorPage statusCode={404} />
     // }
     return (
-        <>
+        <PostLayout>
             <Head>
                 <title>{ post.title } | { format(parseISO(post.date), 'yyyy') }</title>
                 <link rel="stylesheet" href={`/css/prism-${ isDarkMode.value ? 'dark' : 'light' }.css`} />
@@ -67,7 +67,7 @@ const Post = ({post}: Props) => {
                 </div> : null }
             <PostBody content={post.content} />
             {/* <Modal /> */}
-        </>
+        </PostLayout>
     )
 }
 
@@ -111,7 +111,5 @@ export async function getStaticPaths() {
       fallback: false,
     }
 }
-
-Post.Layout = PostLayout
 
 export default Post

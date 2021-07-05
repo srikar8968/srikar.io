@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-import DefaultLayout from '../components/layouts/Default'
 import StyleProvider from '../styles/StyleProvider'
 import GlobalCSS from '../styles/GlobalCSS'
 import Head from 'next/head';
@@ -11,7 +9,7 @@ import Menu from '../components/app/Menu'
 import type { AppProps /*, AppContext */ } from 'next/app'
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
-  const Layout = Component.Layout || DefaultLayout;
+  // const Layout = Component.Layout || DefaultLayout;
 
   return (
     <div className="app">
@@ -34,9 +32,9 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
             onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, x: -100, ease: "power1.out" })}
             mountOnEnter={true}
             unmountOnExit={true}>
-            <Layout>
+            {/* <Layout> */}
               <Component {...pageProps} />
-            </Layout>
+            {/* </Layout> */}
           </Transition>
         </SwitchTransition>
       </StyleProvider>

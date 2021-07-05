@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import PostContainer from '../components/base/PostContainer'
 
-import PostType from '../types/post'
+import PostType from '../types/entry'
 
 const Wrapper = styled.div`
   
