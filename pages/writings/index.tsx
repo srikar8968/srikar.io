@@ -1,5 +1,5 @@
 import { getAllPosts } from '../../lib/post'
-import PostType from '../../types/post'
+import PostType from '../../types/entry'
 import PostContainer from '../../components/base/PostContainer'
 import PostEntry from '../../components/app/PostEntry'
 import PageHeader from '../../components/base/PageHeader'

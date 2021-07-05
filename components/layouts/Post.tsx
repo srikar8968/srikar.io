@@ -81,7 +81,7 @@ const PostLayout = ({children }: Props) => {
                                     excerpt: 'In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.',
                                     slug: 'twenty-useful-js-snippets',
                                     date: '2020-01-01',
-                                    readingTime: '5 min'
+                                    readingTime: '5 min',
                                 }} />
                                 <PostEntry gutter={false} post={{
                                     title: 'Two Forms of Pre-rendering',

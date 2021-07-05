@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import styled from 'styled-components'
-import PostType from '../../types/post'
+import PostType from '../../types/entry'
 
 const Wrapper = styled.a`
     display: block;
