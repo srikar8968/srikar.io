@@ -46,8 +46,8 @@ const Writings = ({posts}: Props) => {
                     <SearchBox onSearchEnter={(val) => setSearchValue(val)} />
                     <div className="pt mt pb mb">
                         { filteredPosts?.map((post, index) => (
-                            <div ref={el => postsRef.current[index] = el}>
-                                <PostEntry key={post.slug} post={post} />
+                            <div key={post.slug} ref={el => postsRef.current[index] = el}>
+                                <PostEntry post={post} />
                             </div>
                         )) }
                         { !(filteredPosts.length > 0) && <EmptyBox /> }

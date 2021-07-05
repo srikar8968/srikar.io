@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 import { gsap } from 'gsap'
-import { useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 
 const Wrapper = styled.div`
     width: 100%;
     overflow: hidden
 `
+type Props = {
+    children: ReactNode,
+    threshold: number,
+    [x: string]: any
+}
 
-const Tilt = ({children, threshold, ...props}) => {
+const Tilt = ({children, threshold, ...props}: Props) => {
     const containerRef = useRef(null);
 
     useEffect(() => {

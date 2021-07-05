@@ -34,7 +34,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
             onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, x: -100, ease: "power1.out" })}
             mountOnEnter={true}
             unmountOnExit={true}>
-            <Layout route={router.asPath}>
+            <Layout>
               <Component {...pageProps} />
             </Layout>
           </Transition>

@@ -5,7 +5,7 @@ import useDarkMode from 'use-dark-mode'
 import PostEntry from '../app/PostEntry'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,7 +35,11 @@ const AuthorWrapper = styled.div`
     }
 `
 
-const PostLayout = ({ route, children }) => {
+type Props = {
+    children: ReactNode
+}
+
+const PostLayout = ({children }: Props) => {
     const isDarkMode = useDarkMode(false);
     
     useEffect(() => {

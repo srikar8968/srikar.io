@@ -4,10 +4,10 @@ type PostType = {
   title: string,
   date: string,
   slug: string,
-  featureImage: string,
+  featureImage?: string,
   readingTime: string,
-  author: Author,
-  excerpt: string,
+  author?: Author,
+  excerpt?: string,
   content: string
 };
 

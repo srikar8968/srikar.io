@@ -11,7 +11,7 @@ const Wrapper = styled.footer`
     }
 `
 
-const Footer = ({...props}) => {
+const Footer = ({...props}: {[x: string]: any}) => {
     return (
         <Wrapper {...props}>
             <div className="container flex items-center flex-wrap">

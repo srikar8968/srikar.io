@@ -26,7 +26,11 @@ const ModalBackDrop = styled.button.attrs({
     outline: 0;
 `
 
-const Modal = ({show}) => {
+type Props = {
+    show: boolean
+}
+
+const Modal = ({show}: Props) => {
     useEffect(() => {
         const r = window.innerWidth;
     }, [show]);

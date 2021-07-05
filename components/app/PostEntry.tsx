@@ -29,7 +29,7 @@ const Wrapper = styled.a`
 
 type Props = {
     post: PostType,
-    gutter: Boolean
+    gutter?: Boolean
 };
 
 const PostEntry = ({post, gutter = true}: Props) => {

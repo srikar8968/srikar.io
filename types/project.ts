@@ -1,7 +1,7 @@
 type Project = {
   name: string,
   url: string,
-  inDev: boolean,
+  inDev?: boolean,
 };
 
 export default Project

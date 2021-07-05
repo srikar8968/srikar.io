@@ -1,6 +1,6 @@
 import { Transition, TransitionGroup } from 'react-transition-group'
 import { gsap } from 'gsap'
-import { useState } from 'react'
+import { useState, ReactNode } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -8,7 +8,13 @@ const Wrapper = styled.div`
     filter: blur(3px)
 `
 
-const PageTransition = ({show, children}) => {
+type Props = {
+    show: boolean,
+    children: ReactNode
+}
+
+
+const PageTransition = ({show, children}: Props) => {
     const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center', duration: .5, ease: 'power1.out' } });
     const [prevNode, setPrevNode] = useState(null);
     return (

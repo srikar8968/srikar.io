@@ -287,6 +287,14 @@ const PostStyle = styled.div`
     & img[align=left] {
         padding-right: 20px
     }
+    #table-of-contents + ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        & > li {
+            width: 50%;
+        }
+    }
     ${ mediaScreens() }
 `;
 

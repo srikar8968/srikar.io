@@ -1,5 +1,8 @@
+type Props = {
+    onSearchEnter: (val: string) => void
+}
 
-const SearchBox = ({ onSearchEnter }) => {
+const SearchBox = ({ onSearchEnter }: Props) => {
     return (
         <div className="inline-block border rounded relative pl pr">
             <input

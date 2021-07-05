@@ -51,7 +51,11 @@ const Wrapper = styled.nav`
   }
 `
 
-const Menu = ({ pathname }) => {
+type Props = {
+    pathname: string
+}
+
+const Menu = ({ pathname }: Props) => {
 	const links = [
 		{
 			name: 'Home',

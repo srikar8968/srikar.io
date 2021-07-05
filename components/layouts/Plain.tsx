@@ -1,5 +1,10 @@
+import { ReactNode } from "react"
 
-const PlainLayout = ({route, children }) => {
+type Props = {
+    children: ReactNode
+}
+
+const PlainLayout = ({children}: Props) => {
     return (
         <div className="plain-layout">
             { children }

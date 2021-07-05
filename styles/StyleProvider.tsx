@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import useDarkMode from 'use-dark-mode'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from './theme'
 
-const StyleProvider = ({children}) => {
+type Props = {
+    children: ReactNode
+}
+
+const StyleProvider = ({children}: Props) => {
     const [isMounted, setIsMounted] = useState(false);
     const darkMode = useDarkMode(false);
     const theme = darkMode.value ? darkTheme : lightTheme;

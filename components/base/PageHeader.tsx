@@ -47,7 +47,7 @@ const PageTitle = styled.h1`
 
 type Props = {
     title: string,
-    description: string
+    description?: string
 };
 
 const PageHeader = ({title, description}: Props) => {

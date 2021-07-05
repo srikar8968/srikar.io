@@ -33,7 +33,12 @@ const LogoWrapper = styled.div`
     transform: rotateX(90deg);
 `
 
-const Nav = ({mode, ...props}) => {
+type Props = {
+    mode: string | null,
+    [x: string]: any
+}
+
+const Nav = ({mode, ...props}: Props) => {
     const signatureRef = useRef(null);
     const signatureInvRef = useRef(null);
     const navRef = useRef(null);

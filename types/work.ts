@@ -1,9 +1,9 @@
 type Work = {
   name: string,
   url: string,
-  screens: string[],
+  screens?: string[],
   logo: string,
-  description: string
+  description?: string
 };
 
 export default Work
