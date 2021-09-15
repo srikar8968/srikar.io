@@ -28,8 +28,8 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
             key={router.pathname}
             timeout={500}
             in={true}
-            onEnter={(node) => gsap.from(node, { duration: 0.5, autoAlpha: 0, x: 100, ease: "power1.out" })}
-            onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, x: -100, ease: "power1.out" })}
+            onEnter={(node) => gsap.from(node, { duration: 0.3, autoAlpha: 0, x: 50, ease: "power1.out" })}
+            onExit={(node) => gsap.to(node, { duration: 0.3, autoAlpha: 0, x: -50, ease: "power1.out" })}
             mountOnEnter={true}
             unmountOnExit={true}>
             {/* <Layout> */}

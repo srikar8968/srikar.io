@@ -32,12 +32,12 @@ const Hero = styled.div`
 `
 
 const About = () => {
-    const tl = gsap.timeline({ paused: true, defaults: { duration: 1, delay: 0.25, ease: 'power4.out' } });
+    const tl = gsap.timeline({ paused: true, defaults: { duration: 0.5, delay: 0.1, ease: 'power4.out' } });
     let txtRef = useRef([]);
     useEffect(() => {
         tl.set(txtRef.current, { autoAlpha: 0, xPercent: -100 })
           .to(txtRef.current, { autoAlpha: 1, duration: 0.2 })
-          .to(txtRef.current, { xPercent: 0, stagger: 0.5 }).play();
+          .to(txtRef.current, { xPercent: 0, stagger: 0.25 }).play();
         return () => tl.kill();
     }, [])
     return (
@@ -45,7 +45,7 @@ const About = () => {
             <div className="w-full">
                 <Wrapper>
                     <Hero>
-                        <span ref={el => txtRef.current[2] = el} className="mb block txtReveal">Hello, I'm <span className="text-primary">Srikar</span></span>
+                        <span ref={el => txtRef.current[2] = el} className="mb block txtReveal">Hey, I'm <span className="text-primary">Srikar</span></span>
                         <h1>
                             <span ref={el => txtRef.current[0] = el} className="block txtReveal">Web</span>
                             <span ref={el => txtRef.current[1] = el} className="block txtReveal">Developer</span>

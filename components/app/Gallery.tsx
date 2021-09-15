@@ -44,7 +44,7 @@ const GalleryItem = styled.div`
 			color: ${({theme}) => theme.text.default};
 			opacity: 0.9;
 			backdrop-filter: blur(2px;);
-			padding: 0 4rem;
+			padding: 0 2rem;
 		}
 	}
 `

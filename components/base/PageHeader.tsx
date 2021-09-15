@@ -51,12 +51,12 @@ type Props = {
 };
 
 const PageHeader = ({title, description}: Props) => {
-    const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center', duration: 0.3 } });
+    const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center', duration: 0.2 } });
     let revealRef = useRef([]);
 
     useEffect(() => {
         tl.set(revealRef.current, { scale: 0 })
-          .to(revealRef.current, { scale: 1, stagger: 0.5, ease: 'back.out' })
+          .to(revealRef.current, { scale: 1, stagger: 0.2, ease: 'back.out' })
           .play()
         return () => tl.kill();
     }, []);

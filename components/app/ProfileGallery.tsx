@@ -75,7 +75,7 @@ const Item = ({item}) => {
 
 const ProfileGallery = () => {
     let bxRef = useRef([]);
-    const tl = gsap.timeline({ paused: true, defaults: { duration: 0.75, delay: 1.25 } });
+    const tl = gsap.timeline({ paused: true, defaults: { duration: 0.5, delay: 0.5 } });
     const items = [
         { title: "About", path: '/about', thumb: 'about.svg' },
         { title: "Projects", path: '/projects', thumb: 'projects.svg' },
@@ -88,7 +88,7 @@ const ProfileGallery = () => {
           .to(bxRef.current, {
             autoAlpha: 1,
             y: 0, 
-            stagger: { each: 0.5, from: 'start' } 
+            stagger: { each: 0.25, from: 'start' } 
           }).play();
         return () => tl.kill();
     }, []);

@@ -27,7 +27,7 @@ const PostStyle = styled.div`
         font-size: 16px
     }
     & code.language-unknown {
-        border 1px solid ${({theme}) => theme.border.secondary};
+        border 1px solid ${({theme}) => theme.border.light};
         padding: 0 .5em;
         white-space: nowrap;
         font-size: 1rem;
