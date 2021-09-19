@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     min-height: ${({theme}) => theme.spacing[64]};
     & svg {
-        opacity: ${({theme}) => theme.mode == 'dark' ? '0.4' : '0.6'};
+        opacity: ${({theme}) => theme.mode == 'dark' ? '0.4' : '0.4'};
         position: absolute;
         top: calc(50% - ${({theme}) => theme.spacing[24]});
         left: calc(50% - ${({theme}) => theme.spacing[36]});

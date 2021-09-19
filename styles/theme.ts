@@ -7,7 +7,7 @@ const defaultTheme = {
 const light = {
     mode: 'light',
     border: {
-        default: defaultTheme.colors.gray[600],
+        default: defaultTheme.colors.gray[300],
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[300],
         light: defaultTheme.colors.gray[100]
@@ -31,10 +31,10 @@ const light = {
   const dark = {
     mode: 'dark',
     border: {
-        default: defaultTheme.colors.gray[800],
+        default: defaultTheme.colors.gray[700],
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[600],
-        light: defaultTheme.colors.gray[700]
+        light: defaultTheme.colors.gray[800]
     },
     bg: {
         default: defaultTheme.colors.gray[900],
@@ -47,7 +47,7 @@ const light = {
         default: defaultTheme.colors.gray[100],
         primary: defaultTheme.colors.yellow[600],
         secondary: defaultTheme.colors.gray[300],
-        light: defaultTheme.colors.gray[500],
+        light: defaultTheme.colors.gray[400],
         invert: defaultTheme.colors.gray[900]
     }
   }

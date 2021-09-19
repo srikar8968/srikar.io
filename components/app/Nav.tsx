@@ -12,11 +12,11 @@ const NavBar = styled.header`
     position: ${({fixed}) => fixed ? 'fixed' : 'relative'};
     top: 0;
     width: 100%;
-    height: ${({theme}) => theme.spacing[20]};
+    height: ${({theme}) => theme.spacing[28]};
     background-image: ${({fixed, theme}) => fixed ? `linear-gradient(to bottom, ${theme.bg.default} 10px, transparent 80px)` : `none`};
     z-index: 40;
     & .container {
-        height: ${({theme}) => theme.spacing[20]};
+        height: ${({theme}) => theme.spacing[28]};
     }
     & .signature-container {
         display: block;
