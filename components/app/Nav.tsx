@@ -77,8 +77,10 @@ const Nav = ({mode, ...props}: Props) => {
                     </a>
                 </Link>
                 <div className="w-full flex items-stretch justify-end">
-                    <nav className="flex items-center text-md mr">
-                        <Link href="/writings"><a className="ml mr">Writings</a></Link>
+                    <nav className="flex items-center text-md mr text-secondary">
+                        <Link href="/writings"><a className="ml mr text-light">#<i>&nbsp;about&nbsp;</i></a></Link>
+                        <Link href="/writings"><a className="ml mr text-light">#<i>&nbsp;writings&nbsp;</i></a></Link>
+                        <Link href="/writings"><a className="ml mr text-light">#<i>&nbsp;contact&nbsp;</i></a></Link>
                     </nav>
                     {/* <Link href="/"><a className="mr pr"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a></Link> */}
                     <ToggleTheme />

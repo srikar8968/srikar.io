@@ -6,8 +6,8 @@ const defaultStyles = {
     sm: 640,
     md: 768,
     lg: 1024,
-    xl: 1280,
-    '2xl': 1536,
+    xl: 1152, //1280
+    // '2xl': 1536,
   },
   colors: {
     transparent: 'transparent',
@@ -17,7 +17,7 @@ const defaultStyles = {
     gray: colors.darkGray,
     red: colors.red,
     yellow: colors.amber,
-    green: colors.emerald,
+    green: colors.teal,
     blue: colors.blue,
     indigo: colors.indigo,
     purple: colors.violet

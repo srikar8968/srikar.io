@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ReactNode, useEffect, useRef } from 'react'
 
 const Wrapper = styled.div`
-    width: 100%;
+    width: auto;
     overflow: hidden
 `
 type Props = {

@@ -14,7 +14,6 @@ const PostStyle = styled.div`
     line-height: 1.5;
     color: ${({theme}) => theme.text.secondary};
     font-size: 16px;
-    line-height: 1.5;
     word-wrap: break-word;
 
     & .remark-highlight {

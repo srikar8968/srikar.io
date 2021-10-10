@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     min-height: ${({theme}) => theme.spacing[64]};
     & svg {
-        opacity: ${({theme}) => theme.mode == 'dark' ? '0.4' : '0.4'};
+        opacity: 0.4;
         position: absolute;
         top: calc(50% - ${({theme}) => theme.spacing[24]});
         left: calc(50% - ${({theme}) => theme.spacing[36]});
@@ -33,6 +33,7 @@ const SvgTilt = styled(Tilt)`
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     height: 100%;
 `
 const PageTitle = styled.h1`
@@ -63,12 +64,12 @@ const PageHeader = ({title, description}: Props) => {
 
     return (
         <Wrapper>
-            <SvgTilt active={true} threshold={15}>
+            <SvgTilt active={true} threshold={10}>
                 <svg ref={el => revealRef.current[0] = el} viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <path id="blob" d="M380.5,315.5Q326,381,248.5,384Q171,387,120,318.5Q69,250,124,188.5Q179,127,272,89Q365,51,400,150.5Q435,250,380.5,315.5Z" fill="#d97706"></path>
+                    <path d="M380.5,315.5Q326,381,248.5,384Q171,387,120,318.5Q69,250,124,188.5Q179,127,272,89Q365,51,400,150.5Q435,250,380.5,315.5Z" fill="#0d9488"></path>
                 </svg>
             </SvgTilt>
-            <Tilt active={true} threshold={25}>
+            <Tilt active={true} threshold={20}>
                 <PageTitle ref={el => revealRef.current[1] = el} >{title}</PageTitle>
                 <p ref={el => revealRef.current[2] = el} className="text-md text-secondary">{description}</p>
             </Tilt>

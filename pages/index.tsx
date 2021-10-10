@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import Section from '../components/base/Section'
+import Tag from '../components/base/Tag'
+import Tilt from '../components/base/animation/Tilt'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { gsap } from 'gsap'
 import { useEffect, useRef, useState } from 'react'
 import { getAllPosts } from '../lib/post'
@@ -7,35 +10,26 @@ import useWindowDimensions from '../lib/utils/useWindowDimensions'
 import Link from 'next/link'
 import Image from 'next/image'
 import PostContainer from '../components/base/PostContainer'
-
 import PostType from '../types/entry'
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Wrapper = styled.div`
-  /*background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%23d97706' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
-  background-size: 50%;*/
-`
-const BubbleTransition = styled.div`
-  background-color: #d97706;
-  width: 80px;
-  height: 80px;
-  opacity: 0.2;
-  border-radius: 100%;
-  position: fixed;
-  z-index: -1;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 25%;
 `
 const HeroWrapper = styled.div`
+  position: relative;
   overflow: hidden;
   min-height: calc(100vh);
   margin-top: -${({theme}) => theme.spacing[28]};
   display: flex;
   align-items: center;
   & h1 {
-    font-size: ${({theme}) => theme.fontSize.xl5[0]};
-    line-height: 3.5rem;
+    font-size: ${({theme}) => theme.fontSize.xl8[0]};
+    line-height: 1.2;
     font-weight: 900;
+  }
+  & h2 {
+    font-size: ${({theme}) => theme.fontSize.xl3[0]};
     margin-bottom: 1rem;
   }
   & .navLst {
@@ -46,32 +40,117 @@ const HeroWrapper = styled.div`
   }
 `
 
+const BgRadiant = styled(Tilt)`
+  position: absolute;
+  top: 5%;
+  left: 0;
+  opacity: 0.6;
+  z-index: -1;
+  & svg {
+    height: 110vh
+  }
+`
+const SkillGallery = styled.div`
+  height: 550px;
+  flex-shrink: 0;
+  position: relative;
+  width: 50%;
+`
+const SkillGalleryItemBase = styled.div`
+  & > div {
+    position: absolute;
+    background-color: ${({theme}) => theme.mode === 'dark' ? theme.bg.light : '#fff'};
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0.25rem;
+    box-shadow: ${({theme}) => theme.mode === 'dark' ? '-5px 5px 25px 0 rgba(0,0,0,0.5)' : '0 0 2px rgba(0,0,0,0.25)'};
+    opacity: 1;
+    filter: grayscale(0.5)
+  }
+  & > div:hover {
+    filter: grayscale(0)
+  }
+`
+
+const SkillGalleryItem = styled(SkillGalleryItemBase)`
+  & > div {
+    top: ${({top}) => top || 'auto'};
+    bottom: ${({bottom}) => bottom || 'auto'};
+    left: ${({left}) => left || 'auto'};
+    right: ${({right}) => right || 'auto'};
+    background-image: url("${({logo}) => `/images/logos/${logo}`}");
+    width: ${({size}) => size || '180px'};
+    height: ${({size}) => size || '180px'};
+    background-size: ${({bgSize}) => bgSize || '70%'};
+  }
+`
+
 type Props = {
   allPosts: PostType[]
 };
 
 const Index = ({allPosts}: Props) => {
-  const bubbleEffRef = useRef(null);
-  const tl = gsap.timeline({ paused: true });
+  const skills = [{
+    name: 'JavaScript',
+    color: ['yellow', 400]
+  },{
+    name: 'NodeJS',
+    color: ['green', 400]
+  },{
+    name: 'React',
+    color: ['blue', 400]
+  },{
+    name: 'MYSQL',
+    color: ['blue', 500]
+  },{
+    name: 'Laravel',
+    color: ['red', 500]
+  },{
+    name: 'NextJS',
+    color: ['gray', 800]
+  },];
+  const galleryRef = useRef([]);
+  const galleryContainerRef = useRef(null);
+  const tl = gsap.timeline({ paused: true, defaults: { duration: 0.3 } });
 
   useEffect(() => {
-    const { innerWidth: vw, innerHeight: vh } = window;
+    tl.fromTo(galleryRef.current, {
+      y: 100,
+      scale: 0.5,
+      autoAlpha: 0,
+    }, {
+        y: -50,
+        scale: 1,
+        autoAlpha: 1,
+        scrollTrigger: {
+          trigger: galleryContainerRef.current,
+          start: 'top bottom',
+          end:"+=100%",
+          scrub: true
+        },
+        stagger: {
+          each: 0.2,
+          from: 'end'
+        }
+      }).play();
+  }, [])
 
-    tl.to(bubbleEffRef.current, { width: vw/2, height: vh-50, borderRadius: 0 }).play();
-  }, []);
-  
   return (
     <Wrapper>
-      <BubbleTransition ref={bubbleEffRef} />
       <HeroWrapper>
+        <BgRadiant active={true} threshold={10}>
+          <svg viewBox="0 -250 800 800" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="102" r="400" fill="url(#heroglow_paint0_radial)" fill-opacity=".6"></circle><circle cx="209" cy="289" r="170" fill="url(#heroglow_paint1_radial)" fillOpacity=".3"></circle><defs><radialGradient id="heroglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 149 251) scale(315.089)"><stop stopColor="#3ABAB4"></stop><stop offset="1" stopColor="#3ABAB4" stopOpacity=".01"></stop></radialGradient><radialGradient id="heroglow_paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 -40 249) scale(133.913)"><stop stopColor="#667EEA"></stop><stop offset="1" stopColor="#667EEA" stopOpacity=".01"></stop></radialGradient></defs></svg>
+        </BgRadiant>
         <PostContainer>
           <h1>
             Hey, I'm&nbsp;
-            <span className="text-primary">Srikar</span>.<br/>
-            I'm a full-stack web dev, living in 
-            <span className="ml mr"><Image src="/images/charminar.png" width={35} height={35} alt="Hyderabad, India" title="Hyderabad, India" /></span>India 
-            who love's building digital websites.
+            <span className="text-gr-primary">Srikar</span>.
           </h1>
+          <h2>
+            I'm a full-stack web dev, living in 
+            <span className="ml mr"><Image src="/images/charminar.png" width={50} height={50} alt="Hyderabad, India" title="Hyderabad, India" /></span>India 
+            who love's building digital websites.
+          </h2>
           <div className="navLst flex items-center flex-wrap text-secondary">
             <Link href="/writings"><a className="mr ml">&lt;\<span>writings</span>&gt;</a></Link>
             <Link href="/work"><a className="mr ml">&lt;\<span>work</span>&gt;</a></Link>
@@ -79,16 +158,37 @@ const Index = ({allPosts}: Props) => {
           </div>
         </PostContainer>
       </HeroWrapper>
-      {/*<Section as="section" type="invert" color="invert" py="16">
+
+      <Section ref={galleryContainerRef} id="hello" as="section" pt={4} pb={16}>
         <div className="container">
-          <h2>Latest</h2>
-          <ul>
-            { allPosts.map((post, index) => (
-              <li key={index}><Link href="/writings/[slug]" as={`/writings/${post.slug}`}><a>{ post.title }</a></Link></li>
-            )) }
-          </ul>
+          <div className="flex items-center">
+            <SkillGallery>
+              <SkillGalleryItem bottom="100px" left="20px" logo="laravel.svg" size="80px">
+                <div ref={el => galleryRef.current[1] = el}></div>
+              </SkillGalleryItem>
+              <SkillGalleryItem bottom="30px" right="0" logo="mysql.svg" size="120px">
+                <div ref={el => galleryRef.current[0] = el}></div>
+              </SkillGalleryItem>
+              <SkillGalleryItem top="40px" left="0" logo="nodejs.svg" size="300px">
+                <div ref={el => galleryRef.current[2] = el}></div>
+              </SkillGalleryItem>
+              <SkillGalleryItem bottom="0" left="150px" logo="react.svg" size="240px">
+                <div ref={el => galleryRef.current[3] = el}></div>
+              </SkillGalleryItem>
+              <SkillGalleryItem top="0" right="20px" logo="javascript.svg" size="280px" bgSize="90%">
+                <div ref={el => galleryRef.current[4] = el}></div>
+              </SkillGalleryItem>
+            </SkillGallery>
+            <Section pl={16}>
+              <span className="text-primary mb semibold">Skill set</span>
+              <h2 className="font-xl5 exbold pb"><i className="text-primary">.</i>Building projects with trending technologies</h2>
+              <div className="flex items-center flex-wrap mt mb pt pb">
+                { skills.map((skill, index) => <Tag key={index} theme={['gray', 400]}>{ skill.name }</Tag>) }
+              </div>
+            </Section>
+          </div>          
         </div>
-      </Section>*/}
+      </Section>
     </Wrapper>
   )
 }
