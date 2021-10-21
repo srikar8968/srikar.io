@@ -26,7 +26,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
       <StyleProvider>
         <GlobalCSS />
         <Nav mode="none" />
-        <Menu pathname={router.pathname} />
+        {/* <Menu pathname={router.pathname} /> */}
         <SwitchTransition>
           <Transition
             key={router.pathname}

@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     text-align: center;
     flex-direction: column;
     overflow: hidden;
-    min-height: ${({theme}) => theme.spacing[64]};
+    min-height: ${({theme}) => theme.spacing[48]};
     & svg {
         opacity: 0.4;
         position: absolute;

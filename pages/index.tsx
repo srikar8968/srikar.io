@@ -20,11 +20,11 @@ const HeroWrapper = styled.div`
   position: relative;
   overflow: hidden;
   min-height: calc(100vh);
-  margin-top: -${({theme}) => theme.spacing[28]};
+  margin-top: -${({theme}) => theme.spacing[36]};
   display: flex;
   align-items: center;
   & h1 {
-    font-size: ${({theme}) => theme.fontSize.xl8[0]};
+    font-size: ${({theme}) => theme.fontSize.xl7[0]};
     line-height: 1.2;
     font-weight: 900;
   }
@@ -51,7 +51,7 @@ const BgRadiant = styled(Tilt)`
   }
 `
 const SkillGallery = styled.div`
-  height: 550px;
+  height: 480px;
   flex-shrink: 0;
   position: relative;
   width: 50%;
@@ -106,9 +106,12 @@ const Index = ({allPosts}: Props) => {
     name: 'Laravel',
     color: ['red', 500]
   },{
+    name: 'TypeScript',
+    color: ['blue', 600]
+  },{
     name: 'NextJS',
     color: ['gray', 800]
-  },];
+  }];
   const galleryRef = useRef([]);
   const galleryContainerRef = useRef(null);
   const tl = gsap.timeline({ paused: true, defaults: { duration: 0.3 } });
@@ -138,7 +141,7 @@ const Index = ({allPosts}: Props) => {
   return (
     <Wrapper>
       <HeroWrapper>
-        <BgRadiant active={true} threshold={10}>
+        <BgRadiant active={true} threshold={20}>
           <svg viewBox="0 -250 800 800" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="102" r="400" fill="url(#heroglow_paint0_radial)" fill-opacity=".6"></circle><circle cx="209" cy="289" r="170" fill="url(#heroglow_paint1_radial)" fillOpacity=".3"></circle><defs><radialGradient id="heroglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 149 251) scale(315.089)"><stop stopColor="#3ABAB4"></stop><stop offset="1" stopColor="#3ABAB4" stopOpacity=".01"></stop></radialGradient><radialGradient id="heroglow_paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 -40 249) scale(133.913)"><stop stopColor="#667EEA"></stop><stop offset="1" stopColor="#667EEA" stopOpacity=".01"></stop></radialGradient></defs></svg>
         </BgRadiant>
         <PostContainer>
@@ -163,24 +166,24 @@ const Index = ({allPosts}: Props) => {
         <div className="container">
           <div className="flex items-center">
             <SkillGallery>
-              <SkillGalleryItem bottom="100px" left="20px" logo="laravel.svg" size="80px">
+              <SkillGalleryItem bottom="40px" left="40px" logo="laravel.svg" size="80px">
                 <div ref={el => galleryRef.current[1] = el}></div>
               </SkillGalleryItem>
               <SkillGalleryItem bottom="30px" right="0" logo="mysql.svg" size="120px">
                 <div ref={el => galleryRef.current[0] = el}></div>
               </SkillGalleryItem>
-              <SkillGalleryItem top="40px" left="0" logo="nodejs.svg" size="300px">
+              <SkillGalleryItem top="40px" left="20px" logo="nodejs.svg" size="280px">
                 <div ref={el => galleryRef.current[2] = el}></div>
               </SkillGalleryItem>
-              <SkillGalleryItem bottom="0" left="150px" logo="react.svg" size="240px">
+              <SkillGalleryItem bottom="0" left="150px" logo="react.svg" size="200px">
                 <div ref={el => galleryRef.current[3] = el}></div>
               </SkillGalleryItem>
-              <SkillGalleryItem top="0" right="20px" logo="javascript.svg" size="280px" bgSize="90%">
+              <SkillGalleryItem top="0" right="30px" logo="javascript.svg" size="240px" bgSize="90%">
                 <div ref={el => galleryRef.current[4] = el}></div>
               </SkillGalleryItem>
             </SkillGallery>
             <Section pl={16}>
-              <span className="text-primary mb semibold">Skill set</span>
+              <span className="text-primary mb semibold">Here are some of my expertise</span>
               <h2 className="font-xl5 exbold pb"><i className="text-primary">.</i>Building projects with trending technologies</h2>
               <div className="flex items-center flex-wrap mt mb pt pb">
                 { skills.map((skill, index) => <Tag key={index} theme={['gray', 400]}>{ skill.name }</Tag>) }
