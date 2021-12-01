@@ -1,15 +1,14 @@
 import styled from 'styled-components'
-import Image from 'next/image'
-import PostLayout from '../../components/layouts/Post'
-import PostBody from '../../components/app/PostBody'
-import { getPostBySlug, getAllPosts } from '../../lib/post'
-import { format, parseISO } from 'date-fns'
 import Head from 'next/head'
-import markdownToHtml from '../../lib/markdownToHtml'
+import Image from 'next/image'
 import useDarkMode from 'use-dark-mode'
-import PostType from '../../types/post'
 import { useState } from 'react'
-import { Popover } from 'react-tiny-popover'
+import { format, parseISO } from 'date-fns'
+import PostLayout from '@/components/layouts/Post'
+import PostBody from '@/components/app/PostBody'
+import { getPostBySlug, getAllPosts } from '@/lib/post'
+import markdownToHtml from '@/lib/markdownToHtml'
+import PostType from '@/types/post'
 
 const Title = styled.h1`
     font-size: ${({theme}) => theme.fontSize.xl5[0]};
@@ -26,9 +25,7 @@ type Props = {
 const Post = ({post}: Props) => {
     const isDarkMode = useDarkMode(false);
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-    // if(!router.isFallback && !post?.slug) {
-    //     return <ErrorPage statusCode={404} />
-    // }
+
     return (
         <PostLayout>
             <Head>

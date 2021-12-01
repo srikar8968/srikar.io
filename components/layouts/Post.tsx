@@ -1,11 +1,11 @@
+import { ReactNode, useEffect } from 'react'
 import styled from 'styled-components'
-import PostContainer from '../base/PostContainer'
-import Comments from '../app/Comments'
-import useDarkMode from 'use-dark-mode'
-import PostEntry from '../app/PostEntry'
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import { ReactNode, useEffect } from 'react'
+import useDarkMode from 'use-dark-mode'
+import PostContainer from '@/components/base/PostContainer'
+import Comments from '@/components/app/Comments'
+import PostEntry from '@/components/app/PostEntry'
 
 gsap.registerPlugin(ScrollTrigger);
 

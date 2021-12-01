@@ -4,7 +4,7 @@ type Props = {
 
 const SearchBox = ({ onSearchEnter }: Props) => {
     return (
-        <div className="inline-block border rounded relative pl pr">
+        <div className="inline-block border rounded relative pl pr mt">
             <input
                 className="bg-default pd text-sm"
                 aria-label="Search writings"

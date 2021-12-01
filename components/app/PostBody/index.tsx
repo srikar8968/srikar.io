@@ -1,4 +1,4 @@
-import PostCss from '../../styles/PostCss'
+import PostCss from '@/styles/PostCss'
 
 type Props = {
     content: string

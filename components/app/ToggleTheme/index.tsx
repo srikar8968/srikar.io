@@ -1,16 +1,7 @@
 import { useRef, useEffect } from 'react'
-import styled from 'styled-components'
 import useDarkMode from 'use-dark-mode';
 import { gsap } from 'gsap'
-
-const Svg = styled.svg`
-    width: 24px;
-    height: 24px;
-    & > path, & > circle {
-        opacity: 0;
-        transform-origin: center
-    }
-`
+import { Svg } from './partials/styles';
 
 const ThemeButton = () => {
     const circleRef = useRef(null);

@@ -1,7 +1,6 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
-const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
     position: fixed;
     top: 0;
     bottom: 0;
@@ -12,7 +11,7 @@ const ModalWrapper = styled.div`
     z-index: 9999;
 
 `
-const ModalBackDrop = styled.button.attrs({
+export const ModalBackDrop = styled.button.attrs({
     tabIndex: '-1'
 })`
     position: fixed;
@@ -25,20 +24,3 @@ const ModalBackDrop = styled.button.attrs({
     cursor: default;
     outline: 0;
 `
-
-type Props = {
-    show: boolean
-}
-
-const Modal = ({show}: Props) => {
-    useEffect(() => {
-        const r = window.innerWidth;
-    }, [show]);
-    return (
-        <ModalWrapper>
-            <ModalBackDrop />
-        </ModalWrapper>
-    )
-}
-
-export default Modal
