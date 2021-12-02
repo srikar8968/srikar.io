@@ -42,7 +42,7 @@ const HeroWrapper = styled.div`
 
 const BgRadiant = styled(Tilt)`
   position: absolute;
-  top: 5%;
+  top: 0;
   left: 0;
   opacity: 0.6;
   z-index: -1;
@@ -183,7 +183,7 @@ const Index = ({allPosts}: Props) => {
               </SkillGalleryItem>
             </SkillGallery>
             <Section pl={16}>
-              <span className="text-primary mb semibold">Here are some of my expertise</span>
+              <span className="text-primary mb semibold block">Here are some of my expertise</span>
               <h2 className="font-xl5 exbold pb"><i className="text-primary">.</i>Building projects with trending technologies</h2>
               <div className="flex items-center flex-wrap mt mb pt pb">
                 { skills.map((skill, index) => <Tag key={index} theme={['gray', 400]}>{ skill.name }</Tag>) }
