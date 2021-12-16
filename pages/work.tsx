@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import Gallery from '../components/app/Gallery'
-import PostContainer from '../components/base/PostContainer'
-import WorkType from '../types/work'
-import ProjectType from '../types/project'
+import Gallery from '@/components/app/Gallery'
+import PostContainer from '@/components/base/PostContainer'
+import WorkType from '@/types/work'
+import ProjectType from '@/types/project'
 
 const Wrapper = styled.div`
 	padding: 1rem 0;

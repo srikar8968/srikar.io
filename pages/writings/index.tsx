@@ -1,12 +1,12 @@
-import { getAllPosts } from '../../lib/post'
-import PostType from '../../types/entry'
-import PostContainer from '../../components/base/PostContainer'
-import PostEntry from '../../components/app/PostEntry'
-import PageHeader from '../../components/base/PageHeader'
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import EmptyBox from '../../components/base/EmptyBox'
-import SearchBox from '../../components/app/SearchBox'
+import PostContainer from '@/components/base/PostContainer'
+import PostEntry from '@/components/app/PostEntry'
+import PageHeader from '@/components/base/PageHeader'
+import EmptyBox from '@/components/base/EmptyBox'
+import SearchBox from '@/components/app/SearchBox'
+import { getAllPosts } from '@/lib/post'
+import PostType from '@/types/entry'
 
 type Props = {
     posts: PostType[]
@@ -14,7 +14,6 @@ type Props = {
 
 const Writings = ({posts}: Props) => {
     const [searchValue, setSearchValue] = useState('');
-    const searchRef = useRef(null);
     const postsRef = useRef([]);
 	const tl = gsap.timeline({ paused: true, defaults: { duration: 0.5 } });
 

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import Footer from '../components/app/Footer'
 import Link from 'next/link'
-import ProfileGallery from '../components/app/ProfileGallery'
+import ProfileGallery from '@/components/app/ProfileGallery'
 import { gsap } from 'gsap'
 import { useEffect, useRef } from 'react'
 
@@ -60,7 +59,6 @@ const About = () => {
                     <ProfileGallery />
                 </Wrapper>
             </div>
-            <Footer />
         </>
     )
 }

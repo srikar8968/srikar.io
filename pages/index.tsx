@@ -1,16 +1,16 @@
 import styled from 'styled-components'
-import Section from '../components/base/Section'
-import Tag from '../components/base/Tag'
-import Tilt from '../components/base/animation/Tilt'
+import Section from '@/components/base/Section'
+import Tag from '@/components/base/Tag'
+import Tilt from '@/components/base/animation/Tilt'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { gsap } from 'gsap'
-import { useEffect, useRef, useState } from 'react'
-import { getAllPosts } from '../lib/post'
-import useWindowDimensions from '../lib/utils/useWindowDimensions'
+import { useEffect, useRef } from 'react'
+import { getAllPosts } from '@/lib/post'
+import useWindowDimensions from '@/lib/utils/useWindowDimensions'
 import Link from 'next/link'
 import Image from 'next/image'
-import PostContainer from '../components/base/PostContainer'
-import PostType from '../types/entry'
+import PostContainer from '@/components/base/PostContainer'
+import PostType from '@/types/entry'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +42,7 @@ const HeroWrapper = styled.div`
 
 const BgRadiant = styled(Tilt)`
   position: absolute;
-  top: 0;
+  top: 5%;
   left: 0;
   opacity: 0.6;
   z-index: -1;
@@ -59,7 +59,7 @@ const SkillGallery = styled.div`
 const SkillGalleryItemBase = styled.div`
   & > div {
     position: absolute;
-    background-color: ${({theme}) => theme.mode === 'dark' ? theme.bg.light : '#fff'};
+    background-color: ${({theme}) => theme.mode === 'dark' ? theme.bg.default : '#fff'};
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0.25rem;
@@ -112,16 +112,17 @@ const Index = ({allPosts}: Props) => {
     name: 'NextJS',
     color: ['gray', 800]
   }];
+  const revealRef = useRef([]);
   const galleryRef = useRef([]);
   const galleryContainerRef = useRef(null);
-  const tl = gsap.timeline({ paused: true, defaults: { duration: 0.3 } });
+  const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center', duration: 0.3 } });
 
   useEffect(() => {
     tl.fromTo(galleryRef.current, {
-      y: 100,
-      scale: 0.5,
-      autoAlpha: 0,
-    }, {
+        y: 100,
+        scale: 0.5,
+        autoAlpha: 0,
+      }, {
         y: -50,
         scale: 1,
         autoAlpha: 1,
@@ -135,14 +136,19 @@ const Index = ({allPosts}: Props) => {
           each: 0.2,
           from: 'end'
         }
-      }).play();
+    }).play();
+    tl.set(revealRef.current, { scale: 0 })
+      .to(revealRef.current, { scale: 1, delay: 0.3, duration:0.5 })
+      .play();
+
+      return () => tl.kill();
   }, [])
 
   return (
     <Wrapper>
       <HeroWrapper>
         <BgRadiant active={true} threshold={20}>
-          <svg viewBox="0 -250 800 800" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="102" r="400" fill="url(#heroglow_paint0_radial)" fill-opacity=".6"></circle><circle cx="209" cy="289" r="170" fill="url(#heroglow_paint1_radial)" fillOpacity=".3"></circle><defs><radialGradient id="heroglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 149 251) scale(315.089)"><stop stopColor="#3ABAB4"></stop><stop offset="1" stopColor="#3ABAB4" stopOpacity=".01"></stop></radialGradient><radialGradient id="heroglow_paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 -40 249) scale(133.913)"><stop stopColor="#667EEA"></stop><stop offset="1" stopColor="#667EEA" stopOpacity=".01"></stop></radialGradient></defs></svg>
+          <svg ref={el => revealRef.current[0] = el} viewBox="0 -250 800 800" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="400" cy="102" r="400" fill="url(#heroglow_paint0_radial)" fillOpacity=".6"></circle><circle cx="209" cy="289" r="170" fill="url(#heroglow_paint1_radial)" fillOpacity=".3"></circle><defs><radialGradient id="heroglow_paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 149 251) scale(315.089)"><stop stopColor="#3ABAB4"></stop><stop offset="1" stopColor="#3ABAB4" stopOpacity=".01"></stop></radialGradient><radialGradient id="heroglow_paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90 -40 249) scale(133.913)"><stop stopColor="#667EEA"></stop><stop offset="1" stopColor="#667EEA" stopOpacity=".01"></stop></radialGradient></defs></svg>
         </BgRadiant>
         <PostContainer>
           <h1>
@@ -183,7 +189,7 @@ const Index = ({allPosts}: Props) => {
               </SkillGalleryItem>
             </SkillGallery>
             <Section pl={16}>
-              <span className="text-primary mb semibold block">Here are some of my expertise</span>
+              <span className="text-primary mb semibold">Here are some of my expertise</span>
               <h2 className="font-xl5 exbold pb"><i className="text-primary">.</i>Building projects with trending technologies</h2>
               <div className="flex items-center flex-wrap mt mb pt pb">
                 { skills.map((skill, index) => <Tag key={index} theme={['gray', 400]}>{ skill.name }</Tag>) }

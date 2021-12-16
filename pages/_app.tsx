@@ -1,10 +1,10 @@
-import StyleProvider from '../styles/StyleProvider'
-import GlobalCSS from '../styles/GlobalCSS'
+import StyleProvider from '@/styles/StyleProvider'
+import GlobalCSS from '@/styles/GlobalCSS'
 import Head from 'next/head';
 import { SwitchTransition, Transition } from 'react-transition-group'
 import gsap from 'gsap'
-import Nav from '../components/app/Nav'
-import Menu from '../components/app/Menu'
+import Nav from '@/components/app/Nav'
+import Footer from '@/components/app/Footer';
 
 import type { AppProps /*, AppContext */ } from 'next/app'
 
@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
         <link rel="manifest" href="/favicon/site.webmanifest" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
       <StyleProvider>
@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
         <SwitchTransition>
           <Transition
             key={router.pathname}
-            timeout={500}
+            timeout={500}E
             in={true}
             onEnter={(node) => gsap.from(node, { duration: 0.5, autoAlpha: 0, filter: "blur(2px)", ease: "power1.out" })}
             onExit={(node) => gsap.to(node, { duration: 0.5, autoAlpha: 0, filter: "blur(2px)", ease: "power1.out" })}
@@ -41,6 +41,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
             {/* </Layout> */}
           </Transition>
         </SwitchTransition>
+        <Footer />
       </StyleProvider>
     </div>
   )
