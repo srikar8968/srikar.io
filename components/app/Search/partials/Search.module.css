@@ -1,0 +1,36 @@
+.searchBox {
+	width: 100%;
+	display: inline-block;
+	border: 1px solid var(--border-secondary);
+	border-radius: 0.25rem;
+	position: relative;
+	padding: 0 0.5rem;
+	margin: 0.5rem 0;
+}
+
+.searchBoxInput {
+	padding: 0.5rem;
+	font-size: 0.875rem;
+	background-color: var(--bg-default);
+}
+
+.searchBoxIcon {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+	color: var(--txt-muted);
+}
+
+.searchBoxInput:focus + .searchBoxIcon {
+	fill: var(--txt-muted);
+}
+
+/*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
+
+@media(min-width: 640px) {
+  .searchBox {
+  	width: auto;
+  }
+}

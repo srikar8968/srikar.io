@@ -1,0 +1,22 @@
+.appFooter {
+	width: 100%;
+    z-index: 99;
+}
+
+.appFooterInner {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 5rem;
+    justify-content: space-between;
+}
+.appFooterCol1{
+	display: flex;
+	align-items: center;
+}
+.appFooterCol1 li + li {
+	margin-left: 1rem;
+}
+.appFooterCol2 {
+	color: var(--txt-muted);
+}

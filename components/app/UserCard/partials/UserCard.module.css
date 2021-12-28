@@ -1,0 +1,12 @@
+.userCard {
+	display: flex;
+	align-items: center;
+	padding: .5rem 0;
+}
+
+.userName {
+	display: inline-block;
+	margin-left: .5rem;
+	font-size: .875rem;
+	color: var(--txt-secondary);
+}

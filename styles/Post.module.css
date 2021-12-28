@@ -1,0 +1,25 @@
+.postSingle {
+	width: 100%;
+	padding: 0px;
+}
+
+.title {
+	font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 800;
+    color: var(--txt-default);
+    margin: 1rem 0;
+}
+
+/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+
+@media(min-width: 1024px) {
+    .postSingle {
+        padding: 2rem 0;
+    }
+    .title {
+        font-size: 3rem;
+        line-height: 3.5rem;
+        margin: 1rem 0 2rem 0;
+    }
+}

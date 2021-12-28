@@ -1,0 +1,33 @@
+.postEntry {
+	display: block;
+	padding: 0.875rem;
+	margin: 0.25rem -0.875rem;
+	border-radius: 0.25rem;
+	transition: unset;
+}
+.postEntry:hover {
+	background-color: var(--bg-muted);
+}
+
+.title {
+	font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+}
+
+.excerpt {
+	font-size: .875rem;
+	color: var(--txt-secondary);
+}
+
+/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+
+@media(min-width: 1024px) {
+	.title {
+		font-size: 1.25rem;
+    	line-height: 1.75rem;
+	}
+	.excerpt {
+		font-size: 1rem;
+	}
+}

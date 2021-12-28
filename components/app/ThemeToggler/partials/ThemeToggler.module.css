@@ -1,0 +1,10 @@
+.toggleIcon {
+    width: 24px;
+    height: 24px;
+    color: var(--txt-secondary);
+    margin-left: 1rem;
+}
+.toggleIcon > path, .toggleIcon > circle {
+    opacity: 0;
+    transform-origin: center
+}

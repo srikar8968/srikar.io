@@ -1,0 +1,25 @@
+.postMeta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	font-size: 16px;
+	color: var(--txt-muted);
+	width: 100%;
+	margin-top: .25rem;
+}
+.postMeta > span {
+	display: flex;
+	align-items: center;
+}
+.separator {
+	padding: 0 0.75rem;
+}
+
+.postMeta > span:first-child, .postMeta svg {
+	margin-right: 0.5rem;
+}
+
+.shareWrapper {
+	display: flex;
+	align-items: center;
+}

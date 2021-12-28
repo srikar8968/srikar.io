@@ -1,0 +1,87 @@
+.pageHeader {
+	position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 9rem;
+    margin-bottom: 2rem;
+}
+
+.headerFallback {
+	z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.75);
+}
+
+.svgBlob {
+	opacity: 0.4;
+    position: absolute;
+    top: calc(50% - 6rem);
+    left: calc(50% - 9rem);
+    width: 18rem;
+    margin: -40px;
+    transform: scale(0);
+    transform-origin: center
+}
+
+.tagLine {
+	transform: scale(0);
+    width: 100%;
+    margin: 0 auto;
+    font-size: .875rem;
+    color: var(--txt-secondary);
+}
+
+.title {
+	font-size: 1.5rem;
+    line-height: 2.25rem;
+    font-weight: 800;
+    color: var(--txt-default);
+    opacity: 0.8;
+    transform: scale(0);
+}
+
+/*|||||||||||||||||||||| Mobile(sm) ||||||||||||||||||||||*/
+
+@media(min-width: 640px) {
+  
+}
+
+/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+
+@media(min-width: 768px) {
+
+}
+
+/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+
+@media(min-width: 1024px) {
+    .pageHeader {
+        min-height: 12rem;
+        margin-bottom: 0;
+    }
+    .headerFallback {
+        transform: scale(1);
+    }
+    .title {
+        font-size: 1.875rem;
+        margin-bottom: .5rem;
+    }
+    .tagLine {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+/*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
+
+@media(min-width: 1152px) {
+  
+}
