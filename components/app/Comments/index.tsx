@@ -10,7 +10,7 @@ const Comments = ({theme}: { theme: string }) => {
         el.setAttribute("repo", "srikar8968/blog-comments");
         el.setAttribute("issue-term", "pathname");
         el.setAttribute("theme", `github-${theme}`);
-        commentRef.current.innerHTML = null;
+        commentRef.current.innerHTML = "";
         commentRef.current.appendChild(el)
     }, [theme])
 
