@@ -18,7 +18,6 @@ import work from '../_data/work'
 import styles from '@/styles/Home.module.css'
 
 const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
-  console.log(posts);
   const [hovered, setIsHovered] = useState(false);
   const tl = gsap.timeline({ paused: true, defaults: { transformOrigin: 'center', duration: 0.2, delay: 0.2 } });
   let revealRef = useRef([]);
@@ -98,6 +97,8 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
           <div className="container">
             <h2 className={styles.writingsSectionTitle}><span className="txt-primary">.</span>My Writings</h2>
             <PostList posts={posts} />
+
+            <Link href="/writings"><a>{ `< View all Writings />` }</a></Link>
           </div>
         </section>
 

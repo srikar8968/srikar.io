@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head';
 import useDarkMode from 'use-dark-mode';
@@ -10,11 +11,18 @@ import '@/styles/globals.css'
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const site = "https://srikar-io.vercel.app/";
   const canonicalURL = site + useRouter().asPath;
+
+  const [isMounted, setIsMounted] = useState(false);
   const darkMode = useDarkMode(true);
 
-  return (
+  useEffect(() => {
+      setIsMounted(true)
+  }, [])
+
+  const app = (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
         <meta name="robots" content="all" />
         <meta name="language" content="EN" />
         <meta name="document-type" content="Public" />
@@ -30,6 +38,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Layout>
     </>
   )
+
+  if(!isMounted) {
+      return <div className="ssr__mtch__container" style={{ visibility: 'hidden' }}>{ app }</div>
+  }
+
+  return app
 }
 
 export default MyApp
