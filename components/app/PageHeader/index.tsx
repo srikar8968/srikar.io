@@ -11,7 +11,8 @@ const PageHeader = ({title, description}: { title: string, description?: string 
     useEffect(() => {
         tl.set(revealRef.current, { scale: 0 })
           .to(revealRef.current, { scale: 1, stagger: 0.2, ease: 'back.out' })
-          .play()
+          .play();
+          
         return () => tl.kill();
     }, []);
 

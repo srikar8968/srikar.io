@@ -17,7 +17,7 @@ import type PostType from '@/types/post'
 import styles from '@/styles/Post.module.css'
 
 const Post: NextPage = ({ post }: { post: PostType }) => {
-    const site = "https://srikar-io-srikar8968.vercel.app/";
+    const site = "https://srikar-io.vercel.app/";
     const ogUrl = site + useRouter().asPath;
     const darkMode = useDarkMode();
     const MDXComponent = useMemo(() => getMDXComponent(post.content), [post.content])

@@ -42,13 +42,13 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
           <div className="container">
             <div className={styles.heroWrapperInner}>
               <div className={styles.heroWrapperContent}>
-                <h1 className={styles.heroWrapperTitle}>Hey, I'm <span>Srikar</span>.</h1>
+                <h1 className={styles.heroWrapperTitle}>Hey, I&apos;m <span>Srikar</span>.</h1>
                 <p className={styles.heroWrapperDesc}>
-                  I'm a full-stack web dev, living in&nbsp;
+                  I&apos;m a full-stack web dev, living in&nbsp;
                   <span><Image src="/images/charminar.png" width={36} height={36} alt="Hyderabad, India" title="Hyderabad, India" /></span>
-                  India who love's to build a <br/>digital faster web.
+                  India who love&apos;s to build a <br/>digital faster web.
                 </p>
-                <a href="https://srikar8968.github.io/Portfolio/resume.pdf" target="_blank" className="txt-primary flex items-center">
+                <a href="https://srikar8968.github.io/Portfolio/resume.pdf" target="_blank" rel="noreferrer" className="txt-primary flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M13 2v7h7"/></svg>
                   <small>&nbsp;View Resume</small>
                 </a>
@@ -71,7 +71,7 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
 
         <section className={styles.aboutSection}>
           <div className="container">
-            <p>I am a Web Developer with vast array of knowledge in front end and back end technologies, frameworks, databases and best code practices. Having more than a 2 year's of experience and seeking to proven process in the position of a Developer to further enhance organizational worth owing to my knowledge in Web Development and dedicated to further developing career skills at professional level to meet company targets and culture.</p>
+            <p>I am a Web Developer with vast array of knowledge in front end and back end technologies, frameworks, databases and best code practices. Having more than a 2 year&apos;s of experience and seeking to proven process in the position of a Developer to further enhance organizational worth owing to my knowledge in Web Development and dedicated to further developing career skills at professional level to meet company targets and culture.</p>
           </div>
         </section>
 
@@ -107,7 +107,7 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
 
             <Gallery items={work} />
 
-            <a href="https://github.com/srikar8968/" target="_blank" className="flex items-center">
+            <a href="https://github.com/srikar8968/" target="_blank" rel="noreferrer" className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
               <small>&nbsp;&nbsp;Go to Repository</small>
             </a>
