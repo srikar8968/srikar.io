@@ -33,8 +33,8 @@ const Header = () => {
 
 					<div className="flex items-center">
 						<div className={styles.navigation}>
-	                        <Link href="/writings"><a>#<i>&nbsp;writings&nbsp;</i></a></Link>
-	                        <Link href="mailto:srikarpanuganti08@gmail.com"><a>#<i>&nbsp;contact&nbsp;</i></a></Link>
+	                        <Link href="/writings"><a><span className="txt-primary">#</span>&nbsp;writings&nbsp;</a></Link>
+	                        <Link href="mailto:srikarpanuganti08@gmail.com"><a><span className="txt-primary">#</span>&nbsp;reachMe&nbsp;</a></Link>
 		                </div>
 		                <ThemeToggler />
 					</div>

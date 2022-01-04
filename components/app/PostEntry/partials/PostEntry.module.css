@@ -13,6 +13,7 @@
 	font-size: 1.125rem;
     line-height: 1.5rem;
     font-weight: 600;
+    color: var(--txt-default);
 }
 
 .excerpt {

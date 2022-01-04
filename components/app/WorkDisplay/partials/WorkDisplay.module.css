@@ -1,0 +1,85 @@
+.cardWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
+}
+.mediaCol {
+	position: relative;
+	width: 50%;
+	min-height: 280px;
+	position: relative;
+	order: 1;
+	background-color: var(--bg-muted);
+	border-radius: .25rem;
+	overflow: hidden;
+	display: none;
+	flex-shrink: 0;
+}
+.mediaCol::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: var(--primary);
+	opacity: 0.5;
+	z-index: 1;
+	flex-shrink: 0;
+	transition: bottom 0.3s linear;
+}
+.contentColR, .contentColL {
+	width: 100%;
+	order: 2;
+}
+.headLine {
+	font-size: .875rem;
+	color: var(--primary);
+}
+.desc {
+	margin: .5rem 0;
+	border-radius: .25rem;
+	color: var(--txt-secondary);
+	font-size: 1rem;
+}
+.tools {
+	margin-bottom: 1rem;
+}
+.tools > li {
+	display: inline-block;
+	font-size: 1rem;
+	color: var(--primary);
+	padding-right: 1rem;
+	margin-bottom: .25rem;
+}
+.tools > li > span {
+	color: var(--txt-default);
+}
+
+/*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
+
+@media(min-width: 1024px) {
+	.cardWrapper {
+		padding: 2rem 0;
+		margin: 2rem 0;
+	}
+	.mediaCol {
+		display: block;
+	}
+	.contentColR, .contentColL {
+		display: 50%;
+	}
+	.contentColR {
+		padding: 1rem 0 1rem 2rem;
+		text-align: right;
+		order: 2;
+	}
+	.contentColL {
+		padding: 1rem 2rem 1rem 0;
+		order: 0;
+	}
+	.contentColR svg {
+		margin-left: auto;
+	}
+}

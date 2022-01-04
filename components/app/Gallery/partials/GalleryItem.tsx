@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 import type Work from '@/types/work'
 
-const GalleryItem = ({item}: { item: Work }) => {
+const GalleryItem = ({item, ...props}: { item: Work, [x: string]: any }) => {
 	
 	return (
 		<Link href={ item.url }>
-			<a target="_blank" className={styles.masonryGridItemWrapper}
+			<a target="_blank" {...props} className={styles.masonryGridItemWrapper}
 				style={{
 					backgroundImage: `url('/images/work-images/${item.styling.backDrop}')`
 				}}>

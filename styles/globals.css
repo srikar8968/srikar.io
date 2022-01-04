@@ -123,8 +123,9 @@ a:hover {
   flex-wrap: wrap;
 }
 .title-lg {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--txt-default);
+  font-weight: 800;
 }
 .txt-primary {
   color: var(--primary);
