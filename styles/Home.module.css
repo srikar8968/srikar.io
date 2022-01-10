@@ -73,6 +73,7 @@
 }
 .aboutSection p{
   transform: scale(0);
+  margin-bottom: 1rem;
 }
 
 .expertiseSection {

@@ -12,6 +12,7 @@ import TiltAnimateContainer from '@/components/app/PageHeader/partials/TiltAnima
 import TiltAnimate from '@/components/app/PageHeader/partials/TiltAnimate'
 import Gallery from '@/components/app/Gallery'
 import PostList from '@/components/app/PostList'
+import SocialPanel from '@/components/app/SocialPanel'
 import WorkDisplay from '@/components/app/WorkDisplay'
 
 import skills from '../_data/skills'
@@ -118,6 +119,9 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
         <section className={styles.aboutSection}>
           <div className="container">
             <p ref={el => revealRef.current[2] = el}>I am a Web Developer with vast array of knowledge in front end and back end technologies, frameworks, databases and best code practices. Having more than a 2 year&apos;s of experience and seeking to proven process in the position of a Developer to further enhance organizational worth owing to my knowledge in Web Development and dedicated to further developing career skills at professional level to meet company targets and culture.</p>
+            <div className="flex justify-center">
+              <SocialPanel />
+            </div>
           </div>
         </section>
 
@@ -174,8 +178,6 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
             </div>
           </div>
         </section>
-
-        
       </>
     </>
   )

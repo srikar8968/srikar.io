@@ -33,8 +33,7 @@ const Card = ({item, align}: { item: Work, align: string }) => {
   	useEffect(() => {
   		ScrollTrigger.matchMedia({
   			"(min-width: 1024px)": () => {
-  				tl.set(revealLRef.current, { autoAlpha: 0 })
-			  	.fromTo(revealLRef.current, { 
+  				tl.fromTo(revealLRef.current, { 
 				  	x: align === 'right' ? -50 : 50, 
 				  	autoAlpha: 0,
 		        }, {

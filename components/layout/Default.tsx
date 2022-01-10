@@ -1,5 +1,6 @@
 import Header from '@/components/app/Header'
 import Footer from '@/components/app/Footer'
+import MobileNav from '@/components/app/MobileNav'
 import { ReactNode } from 'react'
 
 const DefaultLayout = ({ children }: { children: ReactNode }) => {
@@ -12,6 +13,7 @@ const DefaultLayout = ({ children }: { children: ReactNode }) => {
 			</div>
 
 			<Footer />
+			<MobileNav />
 		</div>
 	)
 }

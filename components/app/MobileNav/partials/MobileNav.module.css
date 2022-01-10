@@ -1,0 +1,32 @@
+.navWrapper {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 2rem;
+	width: 100%;
+	background-color: var(--bg-default);
+	display: flex;
+	align-items: stretch;
+	z-index: 10;
+	opacity: 0.9;
+}
+.navLink {
+	width: 50%;
+	min-height: 3rem;
+	flex-shrink: 0;
+	background-color: var(--bg-muted);
+	padding: .5rem 2rem;
+	border: .5rem solid var(--bg-default);
+	margin-top: -1.5rem;
+	font-size: .875rem;
+	text-align: center;
+	border-radius: 4rem;
+}
+
+/*|||||||||||||||||||||| Tablet(md) ||||||||||||||||||||||*/
+
+@media(min-width: 768px) {
+	.navWrapper {
+		display: none;
+	}
+}

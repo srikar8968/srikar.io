@@ -21,6 +21,17 @@ const work = [{
 		backDrop: 'accuray-desk.png'
 	}
 },{
+	name: 'Apps and Reports',
+	url: 'https://www.appsandreports.com/',
+	logo: 'def.png',
+	type: 'SaaS',
+	tools: ['Codeigniter', 'React.js', 'Bootstrap', 'JQuery', 'MySql'],
+	description: 'Apps and Reports provides apt solutions for business, by listing, comparing, and reviewing the software and service based products on their real-time expertise',
+	styling: {
+		minHeight: 0,
+		backDrop: 'anr-desk.png'
+	}
+},{
 	name: 'ResearchData 24',
 	url: 'https://www.researchdata24.com/',
 	logo: 'researchdata24-logo.png',

@@ -7,13 +7,14 @@
 .mediaCol {
 	position: relative;
 	width: 50%;
-	min-height: 280px;
+	min-height: 260px;
 	position: relative;
 	order: 1;
 	background-color: var(--bg-muted);
 	border-radius: .25rem;
 	overflow: hidden;
 	display: none;
+	box-shadow: 0 10px 30px -15px var(--primary);
 	flex-shrink: 0;
 }
 .mediaCol::before {
@@ -62,7 +63,7 @@
 @media(min-width: 1024px) {
 	.cardWrapper {
 		padding: 2rem 0;
-		margin: 2rem 0;
+		margin: 1rem 0;
 	}
 	.mediaCol {
 		display: block;

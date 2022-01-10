@@ -1,0 +1,7 @@
+.socialPanel{
+	display: flex;
+	align-items: center;
+}
+.socialPanel li + li {
+	margin-left: 1rem;
+}
