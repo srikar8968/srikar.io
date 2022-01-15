@@ -35,12 +35,21 @@ const projects = [{
 		backDrop: 'portfolio-desk.png'
 	}
 },{
+	name: 'Web Wynk',
+	url: 'https://github.com/srikar8968/web-wynk',
+	logo: null,
+	git: true,
+	styling: {
+		minHeight: 270,
+		backDrop: 'web-wynk-desk.png'
+	}
+},{
 	name: 'social-app',
 	url: 'https://github.com/srikar8968/social-app',
 	logo: null,
 	git: true,
 	styling: {
-		minHeight: 250,
+		minHeight: 180,
 		backDrop: 'github-universe.jpg'
 	}
 }]
