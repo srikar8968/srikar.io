@@ -14,7 +14,7 @@
 	border-radius: .25rem;
 	overflow: hidden;
 	display: none;
-	box-shadow: 0 10px 30px -15px var(--primary);
+	box-shadow: 0 10px 30px -25px var(--primary);
 	flex-shrink: 0;
 }
 .mediaCol::before {

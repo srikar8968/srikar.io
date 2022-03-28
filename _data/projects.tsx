@@ -1,5 +1,5 @@
 const projects = [{
-	name: 'Seiko Dev Community',
+	name: 'Seiko Dev (development)',
 	url: 'https://github.com/srikar8968/seiko',
 	logo: null,
 	git: true,
@@ -44,7 +44,7 @@ const projects = [{
 		backDrop: 'web-wynk-desk.png'
 	}
 },{
-	name: 'social-app',
+	name: 'social-app (development)',
 	url: 'https://github.com/srikar8968/social-app',
 	logo: null,
 	git: true,

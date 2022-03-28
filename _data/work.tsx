@@ -1,4 +1,15 @@
 const work = [{
+	name: 'Urban Sports Hub',
+	url: 'https://urbansportshub.com/',
+	logo: '',
+	type: 'Sports Club',
+	tools: ['React.js', 'Node.js', 'Styled-components'],
+	description: 'Urban Sports is a young multisport hub from Hyderabad. The motto behind to offer multiple fitness practices is to pick the one that best suits your interest and lifestyle.',
+	styling: {
+		minHeight: 0,
+		backDrop: 'urbansportshub-desk.png'
+	}
+},{
 	name: 'Stratistics MRC',
 	url: 'https://www.strategymrc.com/',
 	logo: 'smrc-logo.png',
@@ -41,17 +52,6 @@ const work = [{
 	styling: {
 		minHeight: 0,
 		backDrop: 'researchdata24-desk.png'
-	}
-},{
-	name: 'Diligence Insights',
-	url: 'https://diligenceins.com/',
-	logo: '',
-	type: 'Ecommerce',
-	tools: ['Laravel', 'React.js', 'Stripe', 'TailwindCss', 'LiveWire'],
-	description: 'Diligence Insights is a pure play market research firm incorporated with an objective to help our clients across their planning lifecycle to develop the business growth.',
-	styling: {
-		minHeight: 0,
-		backDrop: 'di-desk.png'
 	}
 }]
 
