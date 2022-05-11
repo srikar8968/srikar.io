@@ -28,7 +28,7 @@
 }
 
 html {
-  font-family: 'Inter', sans-serif;line-height: 1.5;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 body {
@@ -91,6 +91,14 @@ body.dark-mode {
 
 a:hover {
   color: var(--primary);
+}
+
+.font-alt {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.txt-lg {
+  font-size: 1.375rem;
 }
 
 .post-container {

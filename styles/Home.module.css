@@ -4,6 +4,7 @@
 .heroWrapperInner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
 .heroWrapperContent {
@@ -11,27 +12,46 @@
 }
 .heroWrapperTitle {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 600;
   color: var(--txt-default);
+  font-family: 'Shadows Into Light', cursive;
+  letter-spacing: 3px;
 }
 .heroWrapperTitle > span {
   color: var(--primary);
 }
 .heroWrapperDesc {
-  color: var(--txt-secondary);
-  font-size: 1rem;
+  /*color: var(--txt-secondary);*/
+  font-size: 1.25rem;
   margin-bottom: .5rem;
+}
+.heroWrapperDescOutline {
+  color: var(--txt-secondary);
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--txt-secondary);
+}
+.heroSocialPanel {
+  display: none;
+  color: var(--primary);
 }
 .heroWrapperAvtarWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: auto;
   height: 8rem;
   flex-shrink: 0;
   position: relative;
-  margin-bottom: 1rem;
-  transform: rotateY(180deg) scale(0.75);
   order: 0;
+}
+.avatarWrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transform: rotateY(180deg) scale(0.75);
+  margin-bottom: 1rem;
+  height: 8rem;
 }
 .heroWrapperAvtar {
   position: relative;
@@ -151,34 +171,24 @@
 @media(min-width: 768px) {
   .aboutSection, .projectsSection {
     padding: 4rem 0;
+    font-size: 1.25rem;
+    line-height: 2rem;
   }
   .expertiseSection, .writingsSection {
     padding: 6rem 0;
   }
 
-  .heroWrapper {
-    padding: 1.25rem 0 5rem 0;
+  .heroWrapperDescOutline {
+    -webkit-text-stroke-width: 2px;
   }
-  .heroWrapperInner {
-    flex-wrap: nowrap;
-  }
+
   .heroWrapperTitle {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 0;
   }
   .heroWrapperDesc {
-    font-size: 1.25rem;
-  }
-  .heroWrapperContent {
-    align-items: flex-start;
-    text-align: left;
-  }
-  .heroWrapperAvtarWrapper {
-    width: 18rem;
-    height: 9.125rem;
-    transform: none;
-    margin-bottom: 0;
-    order: 2;
+    font-size: 2.5rem;
+    font-weight: 900;
   }
 
   .aboutSection {
@@ -189,13 +199,39 @@
     flex-grow: 0;
   }
   .expertiseSectionTitle, .projectsSectionTitle, .writingsSectionTitle {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 /*|||||||||||||||||||||| Laptop(lg) ||||||||||||||||||||||*/
 
 @media(min-width: 1024px) {
+  .heroWrapper {
+    padding: 1.25rem 0 5rem 0;
+  }
+  .heroWrapperInner {
+    flex-wrap: nowrap;
+  }
+  .heroWrapperDesc {
+    font-size: 3rem;
+  }
+  .heroSocialPanel {
+    display: block;
+  }
+  .heroWrapperContent {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .heroWrapperAvtarWrapper {
+    width: 18rem;
+    height: 9.125rem;
+    order: 2;
+  }
+  .avatarWrapper{
+    height: 9.125rem;
+    transform: none;
+    margin-bottom: 4rem;
+  }
   .writingsSectionColsL {
     width: 40%;
     padding-right: 3rem;
@@ -214,5 +250,9 @@
 /*|||||||||||||||||||||| Desktop(xl) ||||||||||||||||||||||*/
 
 @media(min-width: 1152px) {
-  
+  .heroWrapperDesc {
+    font-size: 3.5rem;
+    padding-right: 2rem;
+    font-weight: 900;
+  }
 }

@@ -65,7 +65,7 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
             .to(expertiseColLRef.current, { y: -50, scrollTrigger: scrollEffect(expertiseRefContainer.current, 'center bottom') })
             .to(expertiseColRRef.current, { y: 50, scrollTrigger: scrollEffect(expertiseRefContainer.current, 'center bottom') })
             // ------------
-            .fromTo(writingsBackdropRef.current, { xPercent: -60 }, { xPercent: -30, scrollTrigger: scrollEffect(writingsRefContainer.current) })
+            .fromTo(writingsBackdropRef.current, { xPercent: -50 }, { xPercent: -30, scrollTrigger: scrollEffect(writingsRefContainer.current) })
             // ------------
             .to(projectsTitleTxtRef.current, { x: -50, scrollTrigger: scrollEffect(projectsRefContainer.current) })
             // .to(projectsGalleryRef.current, { x: 50, scrollTrigger: scrollEffect(projectsRefContainer.current) })
@@ -91,26 +91,31 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
               <div className={styles.heroWrapperContent}>
                 <h1 ref={welcomeTitleTxtRef} className={styles.heroWrapperTitle}>Hey, I&apos;m <span>Srikar</span>.</h1>
                 <p ref={welcomeDescTxtRef} className={styles.heroWrapperDesc}>
-                  I&apos;m a full-stack web dev, living in&nbsp;
-                  <span><Image src="/images/charminar.png" width={36} height={36} alt="Hyderabad, India" title="Hyderabad, India" /></span>
-                  India with knack for building <br/>scalable digital faster web.
+                  I&apos;m a <span className={styles.heroWrapperDescOutline}>full-stack web dev</span>, living in&nbsp;
+                  <span><Image src="/images/charminar.png" width={45} height={45} alt="Hyderabad, India" title="Hyderabad, India" /></span>
+                  <span className={styles.heroWrapperDescOutline}>Hyd, India</span> with knack for building <br/>scalable faster <span className={styles.heroWrapperDescOutline}>web</span>.
                 </p>
                 <a href="https://srikar8968.github.io/Portfolio/resume.pdf" target="_blank" rel="noreferrer" className="txt-primary flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M13 2v7h7"/></svg>
-                  <small>&nbsp;View Resume</small>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M13 2v7h7"/></svg>
+                  <small className="font-alt txt-lg">&nbsp;View Resume</small>
                 </a>
               </div>
               <div className={styles.heroWrapperAvtarWrapper}>
-                <TiltAnimate className={styles.heroWrapperAvtarFallback} threshold={25}>
-                    <svg className={styles.svgBlob} ref={el => revealRef.current[0] = el} viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M380.5,315.5Q326,381,248.5,384Q171,387,120,318.5Q69,250,124,188.5Q179,127,272,89Q365,51,400,150.5Q435,250,380.5,315.5Z" fill="#0d9488"></path>
-                    </svg>
-                </TiltAnimate>
-                <TiltAnimate threshold={-10}>
-                  <div ref={el => revealRef.current[1] = el} className={styles.heroWrapperAvtar}>
-                    <Image src="/images/avatar-dark-sm.png" layout="fill" alt="Srikar Panuganti" priority />
-                  </div>
-                </TiltAnimate>
+                <div className={styles.avatarWrapper}>
+                  <TiltAnimate className={styles.heroWrapperAvtarFallback} threshold={25}>
+                      <svg className={styles.svgBlob} ref={el => revealRef.current[0] = el} viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M380.5,315.5Q326,381,248.5,384Q171,387,120,318.5Q69,250,124,188.5Q179,127,272,89Q365,51,400,150.5Q435,250,380.5,315.5Z" fill="#0d9488"></path>
+                      </svg>
+                  </TiltAnimate>
+                  <TiltAnimate threshold={-10}>
+                    <div ref={el => revealRef.current[1] = el} className={styles.heroWrapperAvtar}>
+                      <Image src="/images/avatar-dark-sm.png" layout="fill" alt="Srikar Panuganti" priority />
+                    </div>
+                  </TiltAnimate>
+                </div>
+                <div className={styles.heroSocialPanel}> 
+                  <SocialPanel />
+                </div>
               </div>
             </div>
           </div>
@@ -135,7 +140,7 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
               </TiltAnimateContainer>
             </div>
             <div ref={expertiseColRRef} className={styles.expertiseSectionCols}>
-              <span className="txt-primary">Here are some of my expertise</span>
+              <span className="txt-primary font-alt txt-lg">Here are some of my expertise</span>
               <h2 className={styles.expertiseSectionTitle}><span className="txt-primary">.</span>Building projects with trending technologies</h2>
               <div className="flex items-center flex-wrap">
                 { skills.map((skill, index) => <span className={styles.expertiseSectionTags} key={index}>{ skill.name }</span>) }
@@ -153,7 +158,7 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
               <br/><br/>
               Writings based on design, development, and building excellent web applications.
               <br/><br/>
-              <Link href="/writings"><a className="txt-primary">{ `< view all writings />` }</a></Link>
+              <Link href="/writings"><a className="txt-primary font-alt txt-lg">{ `< view all writings />` }</a></Link>
             </div>
             <div className={styles.writingsSectionColsR}>
               <PostList posts={posts} />
@@ -171,9 +176,9 @@ const Home: NextPage = ({posts}: { posts: EntryType[] }) => {
             <div ref={projectsGalleryRef}>
               <Gallery items={projects} />
 
-              <a href="https://github.com/srikar8968/" target="_blank" rel="noreferrer" className="flex items-center">
+              <a href="https://github.com/srikar8968/" target="_blank" rel="noreferrer" className="flex txt-primary items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                <small>&nbsp;&nbsp;Go to Repository</small>
+                <small className="font-alt txt-lg">&nbsp;Go to Repository</small>
               </a>
             </div>
           </div>

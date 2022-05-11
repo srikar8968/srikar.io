@@ -35,15 +35,16 @@
 	transform: scale(0);
     width: 100%;
     margin: 0 auto;
-    font-size: .875rem;
+    font-size: 1rem;
     color: var(--txt-secondary);
 }
 
 .title {
-	font-size: 1.5rem;
+	font-size: 1.75rem;
     line-height: 2.25rem;
     font-weight: 800;
     color: var(--txt-default);
+    font-family: 'Shadows Into Light', cursive;
     opacity: 0.8;
     transform: scale(0);
 }
@@ -71,11 +72,11 @@
         transform: scale(1);
     }
     .title {
-        font-size: 1.875rem;
-        margin-bottom: .5rem;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
     }
     .tagLine {
-        font-size: 1rem;
+        font-size: 1.25rem;
         width: 80%;
     }
 }

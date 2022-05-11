@@ -10,14 +10,21 @@ import '@/styles/globals.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const site = "https://srikar-io.vercel.app/";
-  const canonicalURL = site + useRouter().asPath;
+  const router = useRouter();
+  const canonicalURL = site + router.asPath;
 
   const [isMounted, setIsMounted] = useState(false);
   const darkMode = useDarkMode(true);
 
   useEffect(() => {
       setIsMounted(true)
-  }, [])
+  }, []);
+
+  //  useEffect(() => {
+  //     if(!darkMode.value && (router.pathname == '/')) {
+  //       darkMode.toggle();
+  //     }
+  // }, [router.pathname])
 
   const app = (
     <>

@@ -35,8 +35,9 @@
 	order: 2;
 }
 .headLine {
-	font-size: .875rem;
+	font-size: 1.25rem;
 	color: var(--primary);
+    font-family: 'Shadows Into Light', cursive;
 }
 .desc {
 	margin: .5rem 0;

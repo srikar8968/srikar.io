@@ -7,10 +7,10 @@ const Footer = ({...props}: {[x: string]: any}) => {
 		<footer className={styles.appFooter}>
       <div className="container">
         <section className={styles.reachMeSection}>
-          <h2 className="title-lg txt-primary">Reach me</h2>
+          <h2 className="title-lg font-alt txt-primary">Reach me</h2>
           <p>I am currently seeking new opportunities, feel free to mail me.Whether you want to hire me, ask a question or just say hello, I'll get back to you as soon as I can.</p>
           <Link href="mailto:srikarpanuganti08@gmail.com">
-            <a className="txt-primary">{ `< reach me now />` }</a>
+            <a className="txt-primary txt-lg font-alt">{ `< reach me now />` }</a>
           </Link>
         </section>
       </div>
